@@ -43,7 +43,7 @@ export default function EmployeeList() {
             placeholder="Search employees..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-6 py-3 sm:py-4 surface border border-[rgb(var(--color-primary))]/20 rounded-lg focus:outline-none focus:border-[rgb(var(--color-primary))] text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-secondary))] text-sm sm:text-base transition-all duration-300"
+            className="w-full px-6 py-3 sm:py-4 surface border-2 border-[rgb(var(--color-primary))]/20 focus:border-[rgb(var(--color-primary))] text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-secondary))] text-sm sm:text-base transition-all duration-300"
           />
         </div>
         
@@ -55,7 +55,7 @@ export default function EmployeeList() {
               className="group gradient-border w-full max-w-[400px] mx-auto"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="relative w-full h-[220px] rounded-lg overflow-hidden">
+              <div className="relative w-full h-[220px] overflow-hidden">
                 <div className="absolute inset-0 w-full h-full">
                   <img
                     src={employee.image}
@@ -84,7 +84,7 @@ export default function EmployeeList() {
         </div>
 
         {filteredEmployees.length === 0 && (
-          <div className="text-center text-[rgb(var(--color-text-secondary))] mt-12 p-8 surface rounded-lg">
+          <div className="text-center text-[rgb(var(--color-text-secondary))] mt-12 p-8 border-2 border-[rgb(var(--color-border))]">
             <p className="text-lg">No employees found matching your search.</p>
           </div>
         )}
