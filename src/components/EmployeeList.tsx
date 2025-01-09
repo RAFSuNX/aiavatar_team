@@ -52,10 +52,10 @@ export default function EmployeeList() {
             <Link
               key={employee.id}
               to={`/${employee.slug}`}
-              className="group gradient-border w-full max-w-[400px] mx-auto"
+              className="group block w-full max-w-[400px] mx-auto p-[2px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] rounded-sm hover:scale-[1.02] transition-transform duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="relative w-full h-[220px] overflow-hidden">
+              <div className="relative w-full h-[220px] overflow-hidden bg-[rgb(var(--color-background-start))]">
                 <div className="absolute inset-0 w-full h-full">
                   <img
                     src={employee.image}
