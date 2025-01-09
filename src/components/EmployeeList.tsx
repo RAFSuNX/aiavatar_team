@@ -20,7 +20,15 @@ export default function EmployeeList() {
   if (isLoading) {
     return (
       <div className="min-h-screen gradient-bg flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[rgb(var(--color-primary))]"></div>
+        <div className="w-16 h-16 relative">
+          <div className="w-16 h-16 rounded-full absolute border border-transparent animate-spin"
+               style={{
+                 borderTopColor: '#A4488D',
+                 borderRightColor: '#593896',
+                 borderBottomColor: '#2372BB'
+               }}>
+          </div>
+        </div>
       </div>
     );
   }
@@ -38,13 +46,15 @@ export default function EmployeeList() {
         </div>
 
         <div className="relative max-w-md mx-auto mb-12 md:mb-16 px-4 sm:px-0">
-          <input
-            type="text"
-            placeholder="Search employees..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-6 py-3 sm:py-4 surface border-2 border-[rgb(var(--color-primary))]/20 focus:border-[rgb(var(--color-primary))] text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-secondary))] text-sm sm:text-base transition-all duration-300"
-          />
+          <div className="p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB]">
+            <input
+              type="text"
+              placeholder="Search employees..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-6 py-2 sm:py-3 bg-[rgb(var(--color-background-start))] border-0 focus:ring-0 text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-secondary))] text-sm sm:text-base transition-all duration-300"
+            />
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 px-4 sm:px-6 md:px-0">
@@ -52,7 +62,7 @@ export default function EmployeeList() {
             <Link
               key={employee.id}
               to={`/${employee.slug}`}
-              className="group block w-full max-w-[400px] mx-auto p-[2px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] rounded-sm hover:scale-[1.02] transition-transform duration-300"
+              className="group block w-full max-w-[400px] mx-auto p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] rounded-sm hover:scale-[1.02] transition-transform duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative w-full h-[220px] overflow-hidden bg-[rgb(var(--color-background-start))]">
@@ -64,17 +74,12 @@ export default function EmployeeList() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--color-background-start))]/90 via-[rgb(var(--color-background-start))]/50 to-transparent group-hover:from-[rgb(var(--color-background-start))]/95 transition-all duration-500">
                     <div className="absolute bottom-0 p-6 transform transition-all duration-500 group-hover:translate-y-[-8px]">
-                      <h2 className="text-xl sm:text-2xl font-bold mb-2 gradient-text opacity-90 group-hover:opacity-100 transition-all duration-500">
+                      <h2 className="text-xl sm:text-2xl font-bold gradient-text opacity-90 group-hover:opacity-100 transition-all duration-500">
                         {employee.name}
                       </h2>
-                      <p className="text-sm sm:text-base text-[rgb(var(--color-text-secondary))] mb-2 transform transition-all duration-500 group-hover:text-[rgb(var(--color-text))]">
+                      <p className="text-sm sm:text-base text-[rgb(var(--color-text-secondary))] transform transition-all duration-500 group-hover:text-[rgb(var(--color-text))]">
                         {employee.role}
                       </p>
-                      <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
-                        <p className="text-sm text-[rgb(var(--color-text-secondary))]">
-                          {employee.department}
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>

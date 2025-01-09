@@ -16,7 +16,15 @@ export default function EmployeeDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen gradient-bg flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[rgb(var(--color-primary))]"></div>
+        <div className="w-16 h-16 relative">
+          <div className="w-16 h-16 rounded-full absolute border border-transparent animate-spin"
+               style={{
+                 borderTopColor: '#A4488D',
+                 borderRightColor: '#593896',
+                 borderBottomColor: '#2372BB'
+               }}>
+          </div>
+        </div>
       </div>
     );
   }
