@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+.team-card-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.team-card img {
+  filter: grayscale(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.team-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.team-card {
+  aspect-ratio: 400 / 220;
+}
+
+.team-card .gradient-border {
+  background-clip: padding-box;
+}
+
+@media (max-width: 640px) {
+  .team-card {
+    aspect-ratio: 16 / 9;
+  }
+}
+
