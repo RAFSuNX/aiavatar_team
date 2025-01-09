@@ -13,7 +13,7 @@ export interface Employee {
 export const employees: Employee[] = [
   {
     id: 1,
-    name: "Ariful Goni",
+    name: "ARIFUL GONI",
     slug: "arifulgoni",
     role: "Country Director",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
@@ -29,7 +29,7 @@ export const employees: Employee[] = [
   },
   {
     id: 2,
-    name: "Md Sakibul Hasan",
+    name: "MD SAKIBUL HASAN",
     slug: "sakibulhasan",
     role: "Operations Lead & Admin",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
@@ -45,7 +45,7 @@ export const employees: Employee[] = [
   },
   {
     id: 3,
-    name: "Hossainuzzaman",
+    name: "HOSSAINUZZAMAN",
     slug: "hossainuzzaman",
     role: "Marketing Lead",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
@@ -61,7 +61,7 @@ export const employees: Employee[] = [
   },
   {
     id: 4,
-    name: "Ashfaq Ul Haq Oni",
+    name: "ASHFAQ UL HAQ ONI",
     slug: "ashfaqulhaqoni",
     role: "Senior Accountant",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
@@ -77,7 +77,7 @@ export const employees: Employee[] = [
   },
   {
     id: 5,
-    name: "Md Ashek Hasan Rafsun",
+    name: "MD ASHEK HASAN RAFSUN",
     slug: "ashekhasanrafsun",
     role: "Customer Success Specialist",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
@@ -93,7 +93,7 @@ export const employees: Employee[] = [
   },
   {
     id: 6,
-    name: "Zahir Uddin Tipu",
+    name: "ZAHIR UDDIN TIPU",
     slug: "zahiruddintipu",
     role: "Lead Designer",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
@@ -109,7 +109,7 @@ export const employees: Employee[] = [
   },
   {
     id: 7,
-    name: "Md Bacchu Khan",
+    name: "MD BACCHU KHAN",
     slug: "bacchukhan",
     role: "Market Research Analyst",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
