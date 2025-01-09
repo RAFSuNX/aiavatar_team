@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: 164 72 141;    /* #A4488D */
+    --color-primary-light: 180 96 161;  /* Lighter variant of A4488D */
+    --color-primary-dark: 140 48 117;   /* Darker variant of A4488D */
+    
+    /* Secondary Colors */
+    --color-secondary: 89 56 150;   /* #593896 */
+    --color-secondary-light: 111 78 172;  /* Lighter variant of 593896 */
+    --color-secondary-dark: 67 34 128;    /* Darker variant of 593896 */
+    
+    /* Accent Color */
+    --color-accent: 35 114 187;     /* #2372BB */
+    
+    /* Background Colors */
+    --color-background-start: 0 0 0;   /* #000000 */
+    --color-background-end: 20 20 20;  /* Slightly lighter than black */
+    --color-surface: 30 30 30;         /* Dark surface */
+    --color-surface-light: 40 40 40;   /* Lighter surface */
+    --color-surface-dark: 10 10 10;    /* Darker surface */
+    
+    /* Text Colors */
+    --color-text: 255 255 255;      /* #FFFFFF */
+    --color-text-secondary: 200 200 200;  /* Light gray */
+    --color-text-muted: 150 150 150;     /* Muted gray */
+    
+    /* Border Colors */
+    --color-border: 164 72 141;  /* #A4488D */
+    --color-border-light: 180 96 161;  /* Lighter variant of A4488D */
+  }
+
+  /* Base styles for common elements */
+  body {
+    @apply bg-gradient-to-br from-[rgb(var(--color-background-start))] to-[rgb(var(--color-background-end))];
+    @apply text-[rgb(var(--color-text))];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-[rgb(var(--color-text))];
+  }
+
+  a {
+    @apply text-[rgb(var(--color-primary))] hover:text-[rgb(var(--color-primary-light))] transition-colors;
+  }
+
+  input, textarea, select {
+    @apply bg-[rgb(var(--color-surface))] border border-[rgb(var(--color-border))];
+    @apply focus:border-[rgb(var(--color-primary))] focus:ring-1 focus:ring-[rgb(var(--color-primary))];
+    @apply text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-muted))];
+    @apply rounded-lg transition-all duration-200;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB];
+  }
+  
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:p-[2px];
+    @apply before:bg-gradient-to-r before:from-[#A4488D] before:via-[#593896] before:to-[#2372BB];
+    @apply before:rounded-lg before:-z-10;
+    @apply card-hover;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-[rgb(var(--color-background-start))] to-[rgb(var(--color-background-end))];
+  }
+
+  .surface {
+    @apply bg-[rgb(var(--color-surface))]/50 backdrop-blur-sm;
+  }
+
+  .surface-light {
+    @apply bg-[rgb(var(--color-surface-light))]/50 backdrop-blur-sm;
+  }
+
+  .surface-dark {
+    @apply bg-[rgb(var(--color-surface-dark))]/50 backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+    @apply hover:scale-[1.02];
+    @apply hover:shadow-lg hover:shadow-[#A4488D]/20;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium;
+    @apply transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-[#A4488D] text-white;
+    @apply hover:bg-[rgb(var(--color-primary-dark))];
+  }
+
+  .btn-secondary {
+    @apply bg-[#593896] text-white;
+    @apply hover:bg-[rgb(var(--color-secondary-dark))];
+  }
+
+  .btn-outline {
+    @apply border border-[#A4488D];
+    @apply hover:border-[#593896] hover:text-[#593896];
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[rgb(var(--color-background-start))];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#A4488D] rounded;
+  @apply hover:bg-[rgb(var(--color-primary-light))];
+}
