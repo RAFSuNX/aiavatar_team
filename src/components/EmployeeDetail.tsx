@@ -81,10 +81,10 @@ export default function EmployeeDetail() {
                     <p className="text-[rgb(var(--color-text-secondary)] text-sm">Phone</p>
                     <p className="text-[rgb(var(--color-text))]">{employee.phone}</p>
                   </div>
-                  <div className="border-2 border-[rgb(var(--color-border))] p-4">
+                  {/* <div className="border-2 border-[rgb(var(--color-border))] p-4">
                     <p className="text-[rgb(var(--color-text-secondary)] text-sm">Department</p>
                     <p className="text-[rgb(var(--color-text))]">{employee.department}</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
