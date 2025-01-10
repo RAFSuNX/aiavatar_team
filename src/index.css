@@ -36,7 +36,7 @@
 
   body {
     @apply bg-[url('/src/data/images/suzuverse_bg2.jpg')] bg-cover bg-center bg-fixed;
-    @apply before:content-[''] before:absolute before:inset-0 before:bg-black/60 before:backdrop-blur-sm before:-z-10;
+    @apply before:content-[''] before:absolute before:inset-0 before:bg-black/70 before:backdrop-blur-sm before:-z-10;
     @apply text-[rgb(var(--color-text))];
     @apply relative;
   }
@@ -57,13 +57,14 @@
   }
 
   button {
-    @apply transition-colors duration-200;
+    @apply transition-all duration-200;
   }
 }
 
 @layer components {
   .gradient-text {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB];
+    @apply animate-gradient;
   }
   
   .gradient-border {
@@ -95,35 +96,41 @@
   }
 
   .btn {
-    @apply px-4 py-2 font-medium;
-    @apply transition-colors duration-200;
+    @apply px-4 py-2 font-medium rounded-lg;
+    @apply transition-all duration-200;
   }
 
   .btn-primary {
     @apply bg-[#A4488D] text-white;
-    @apply hover:bg-[rgb(var(--color-primary-dark))];
+    @apply hover:bg-[rgb(var(--color-primary-dark))] hover:shadow-lg;
   }
 
   .btn-secondary {
     @apply bg-[#593896] text-white;
-    @apply hover:bg-[rgb(var(--color-secondary-dark))];
+    @apply hover:bg-[rgb(var(--color-secondary-dark))] hover:shadow-lg;
   }
 
   .btn-outline {
-    @apply border-[0.5px] border-[#A4488D];
-    @apply hover:border-[0.5px] hover:border-[#593896] hover:text-[#593896];
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+    @apply border-[0.5px] border-[#A4488D] rounded-lg;
+    @apply hover:border-[0.5px] hover:border-[#593896] hover:text-[#593896] hover:shadow-lg;
   }
 }
 
 /* Animations */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 8s linear infinite;
 }
 
 /* Custom Scrollbar */
@@ -136,6 +143,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-[#A4488D];
+  @apply bg-[#A4488D] rounded-full;
   @apply hover:bg-[rgb(var(--color-primary-light))];
 }
