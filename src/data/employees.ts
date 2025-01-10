@@ -16,7 +16,7 @@ export const employees: Employee[] = [
     name: "ARIFUL GONI",
     slug: "arifulgoni",
     role: "Country Director",
-    image: "https://i.ibb.co.com/WzRjSJt/arifulnn.jpg",
+    image: "/src/data/images/ariful.png",
     email: "ariful@aiavatar.work",
     phone: "+880 1909-147875",
     department: "Management",
