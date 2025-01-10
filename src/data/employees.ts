@@ -96,7 +96,7 @@ export const employees: Employee[] = [
     name: "ZAHIR UDDIN TIPU",
     slug: "zahiruddintipu",
     role: "Lead Designer",
-    image: "https://i.imgur.com/6789012.png",
+    image: "https://i.ibb.co.com/frcD5Zf/zahir.jpg",
     email: "zahir.uddin@aiavatar.work",
     phone: "+880 1827-122692",
     department: "Graphics",
