@@ -35,8 +35,10 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-[rgb(var(--color-background-start))] to-[rgb(var(--color-background-end))];
+    @apply bg-[url('/src/data/images/suzuverse_bg2.jpg')] bg-cover bg-center bg-fixed;
+    @apply before:content-[''] before:absolute before:inset-0 before:bg-black/60 before:backdrop-blur-sm before:-z-10;
     @apply text-[rgb(var(--color-text))];
+    @apply relative;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -48,14 +50,14 @@
   }
 
   input, textarea, select {
-    @apply bg-[rgb(var(--color-surface))] border-2 border-[rgb(var(--color-border))];
-    @apply focus:border-[rgb(var(--color-primary))] focus:ring-0;
+    @apply bg-[rgb(var(--color-surface))]/80 border-[0.5px] border-[rgb(var(--color-border))];
+    @apply focus:border-[0.5px] focus:border-[rgb(var(--color-primary))] focus:ring-0;
     @apply text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-muted))];
-    @apply transition-all duration-200;
+    @apply transition-colors duration-200;
   }
 
   button {
-    @apply transition-all duration-200;
+    @apply transition-colors duration-200;
   }
 }
 
@@ -65,14 +67,14 @@
   }
   
   .gradient-border {
-    @apply relative before:absolute before:inset-0 before:p-[2px];
+    @apply relative before:absolute before:inset-0 before:p-[0.5px];
     @apply before:bg-gradient-to-r before:from-[#A4488D] before:via-[#593896] before:to-[#2372BB];
     @apply before:-z-10;
-    @apply hover:scale-[1.02] transition-transform duration-300;
+    @apply hover:before:p-[0.5px] hover:scale-[1.02] transition-transform duration-300;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-[rgb(var(--color-background-start))] to-[rgb(var(--color-background-end))];
+    @apply bg-transparent;
   }
 
   .surface {
@@ -94,7 +96,7 @@
 
   .btn {
     @apply px-4 py-2 font-medium;
-    @apply transition-all duration-200;
+    @apply transition-colors duration-200;
   }
 
   .btn-primary {
@@ -108,8 +110,8 @@
   }
 
   .btn-outline {
-    @apply border-2 border-[#A4488D];
-    @apply hover:border-[#593896] hover:text-[#593896];
+    @apply border-[0.5px] border-[#A4488D];
+    @apply hover:border-[0.5px] hover:border-[#593896] hover:text-[#593896];
   }
 
   .animate-float {

@@ -32,8 +32,8 @@ export default function EmployeeDetail() {
   if (!employee) {
     return (
       <div className="min-h-screen gradient-bg text-[rgb(var(--color-text))] p-4 sm:p-6 md:p-8 flex items-center justify-center">
-        <div className="text-center p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] max-w-md w-full">
-          <div className="bg-[rgb(var(--color-background-start))] p-8">
+        <div className="text-center border-l-[0.5px] border-l-[#A4488D] max-w-md w-full">
+          <div className="relative bg-[rgb(var(--color-background-start))] p-8">
             <h1 className="text-2xl sm:text-3xl font-bold mb-4">Employee not found</h1>
             <p className="text-[rgb(var(--color-text-secondary)] mb-6">The employee you're looking for doesn't exist or has been removed.</p>
             <Link to="/" className="inline-flex items-center text-[rgb(var(--color-text))] hover:text-[rgb(var(--color-text-secondary))] transition-colors">
@@ -57,8 +57,8 @@ export default function EmployeeDetail() {
           Back to Team
         </Link>
 
-        <div className="p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB]">
-          <div className="bg-[rgb(var(--color-background-start))]">
+        <div className="border-l-[0.5px] border-l-[#A4488D]">
+          <div className="relative bg-[rgb(var(--color-background-start))]">
             <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
               <img
                 src={employee.image}
@@ -86,9 +86,9 @@ export default function EmployeeDetail() {
                   <div className="space-y-4">
                     <a 
                       href={`mailto:${employee.email}`}
-                      className="block p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] group hover:scale-[1.02] transition-all duration-300"
+                      className="block border-l-[0.5px] border-l-[#A4488D] group hover:scale-[1.02] transition-transform duration-300"
                     >
-                      <div className="bg-[rgb(var(--color-background-start))] p-4 flex items-center gap-3">
+                      <div className="relative bg-[rgb(var(--color-background-start))] p-4 flex items-center gap-3">
                         <Mail className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
                         <div>
                           <p className="text-[rgb(var(--color-text-secondary))] text-xs uppercase tracking-wider mb-1 opacity-60">Email</p>
@@ -98,9 +98,9 @@ export default function EmployeeDetail() {
                     </a>
                     <a 
                       href={`tel:${employee.phone.replace(/\s+/g, '')}`}
-                      className="block p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] group hover:scale-[1.02] transition-all duration-300"
+                      className="block border-l-[0.5px] border-l-[#A4488D] group hover:scale-[1.02] transition-transform duration-300"
                     >
-                      <div className="bg-[rgb(var(--color-background-start))] p-4 flex items-center gap-3">
+                      <div className="relative bg-[rgb(var(--color-background-start))] p-4 flex items-center gap-3">
                         <Phone className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
                         <div>
                           <p className="text-[rgb(var(--color-text-secondary))] text-xs uppercase tracking-wider mb-1 opacity-60">Phone</p>
@@ -120,9 +120,9 @@ export default function EmployeeDetail() {
                     {employee.responsibilities.map((responsibility, index) => (
                       <div 
                         key={index}
-                        className="p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] transition-all duration-300 hover:translate-x-2"
+                        className="border-l-[0.5px] border-l-[#A4488D] transition-transform duration-300 hover:translate-x-2"
                       >
-                        <div className="bg-[rgb(var(--color-background-start))] p-4">
+                        <div className="relative bg-[rgb(var(--color-background-start))] p-4">
                           {responsibility}
                         </div>
                       </div>
