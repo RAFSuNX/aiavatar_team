@@ -46,7 +46,7 @@ export default function EmployeeList() {
         </div>
 
         {/* Search Bar */}
-        <div className="relative w-[95vw] sm:max-w-md mx-auto mb-12 md:mb-16">
+        <div className="max-w-md mx-auto mb-12 md:mb-16 px-4">
           <div className="p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] rounded-lg overflow-hidden">
             <input
               type="text"
@@ -59,12 +59,12 @@ export default function EmployeeList() {
         </div>
         
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 px-4">
           {filteredEmployees.map((employee, index) => (
             <Link
               key={employee.id}
               to={`/${employee.slug}`}
-              className="group mx-auto w-[95vw] sm:w-full sm:max-w-[400px] p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+              className="group p-[1px] bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB] rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               style={{ 
                 opacity: 0,
                 animation: 'fadeIn 0.5s ease forwards',
