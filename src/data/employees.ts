@@ -80,7 +80,7 @@ export const employees: Employee[] = [
     name: "MD ASHEK HASAN RAFSUN",
     slug: "ashekhasanrafsun",
     role: "Customer Success Specialist",
-    image: "https://i.ibb.co.com/PZ0xjKR/ashekhasan.jpg",
+    image: "https://i.ibb.co.com/x2b9z2q/20250110-165006-2.jpg",
     email: "ashek.hasan@aiavatar.work",
     phone: "+880 1616-344922",
     department: "Customer Success",
