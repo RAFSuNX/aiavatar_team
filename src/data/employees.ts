@@ -79,7 +79,7 @@ export const employees: Employee[] = [
     id: 5,
     name: "MD ASHEK HASAN RAFSUN",
     slug: "ashekhasanrafsun",
-    role: "Customer Success Specialist",
+    role: "Project Specialist",
     image: "https://i.ibb.co.com/x2b9z2q/20250110-165006-2.jpg",
     email: "ashek.hasan@aiavatar.work",
     phone: "+880 1616-344922",
@@ -107,20 +107,36 @@ export const employees: Employee[] = [
       "Tax compliance"
     ]
   },
+  // {
+  //   id: 7,
+  //   name: "MD BACCHU KHAN",
+  //   slug: "bacchukhan",
+  //   role: "Market Research Analyst",
+  //   image: "https://i.imgur.com/7890123.png",
+  //   email: "bacchu.khan@aiavatar.work",
+  //   phone: "+880 1774-325360",
+  //   department: "Marketing",
+  //   responsibilities: [
+  //     "Financial reporting",
+  //     "Budget management",
+  //     "Audit coordination",
+  //     "Tax compliance"
+  //   ]
+  // },
   {
-    id: 7,
-    name: "MD BACCHU KHAN",
-    slug: "bacchukhan",
-    role: "Market Research Analyst",
-    image: "https://i.imgur.com/7890123.png",
-    email: "bacchu.khan@aiavatar.work",
-    phone: "+880 1774-325360",
+    id: 8,
+    name: "Aftab Ayub Onick",
+    slug: "aftabayubonick",
+    role: "Video Editor",
+    image: "https://i.postimg.cc/1XPDPhk6/Aftab-Ayub-Onick-1.jpg",
+    email: "aftab.ayub@aiavatar.com.bd",
+    phone: "+880 1634-305675",
     department: "Marketing",
     responsibilities: [
-      "Financial reporting",
-      "Budget management",
-      "Audit coordination",
-      "Tax compliance"
+      "Generate Ai Videos",
+      "Edit Videos",
+      "Edit Ai Avatars",
+      "Create Static & Motion Contents"
     ]
   }
 ];
