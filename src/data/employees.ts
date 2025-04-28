@@ -125,6 +125,22 @@ export const employees: Employee[] = [
   // },
   {
     id: 8,
+    name: "Rawnak Jahan",
+    slug: "rawnakjahan",
+    role: "Growth Marketing Officer",
+    image: "https://i.postimg.cc/7PJCX5yG/Photo-Grid-Plus-1745078566334.jpg",
+    email: "rawnak.jahan@aiavatar.work",
+    phone: "+880 1604-019908",
+    department: "Marketing",
+    responsibilities: [
+      "Community building & event coordination",
+      "Social media & communication skills",
+      "Affiliate recruitment & outreach",
+      "Strategic partnerships & needs assessment"
+    ]
+  },
+  {
+    id: 9,
     name: "Aftab Ayub Onick",
     slug: "aftabayubonick",
     role: "Video Editor",
