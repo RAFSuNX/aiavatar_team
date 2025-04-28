@@ -128,7 +128,7 @@ export const employees: Employee[] = [
     name: "Rawnak Jahan",
     slug: "rawnakjahan",
     role: "Growth Marketing Officer",
-    image: "https://i.postimg.cc/7PJCX5yG/Photo-Grid-Plus-1745078566334.jpg",
+    image: "https://i.postimg.cc/SRLk3Fr5/1000094939.jpg",
     email: "rawnak.jahan@aiavatar.work",
     phone: "+880 1604-019908",
     department: "Marketing",
