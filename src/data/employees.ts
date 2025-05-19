@@ -78,7 +78,7 @@ export const employees: Employee[] = [
   {
     id: 5,
     name: "MD ASHEK HASAN RAFSUN",
-    slug: "ashekhasanrafsun",
+    slug: "ashekhasan",
     role: "Project Specialist",
     image: "https://i.ibb.co.com/x2b9z2q/20250110-165006-2.jpg",
     email: "ashek.hasan@aiavatar.work",
