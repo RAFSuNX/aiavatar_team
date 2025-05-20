@@ -126,7 +126,7 @@ export const employees: Employee[] = [
   {
     id: 8,
     name: "Rawnak Jahan",
-    slug: "rawnakjahan",
+    slug: "aftabayubonick",
     role: "Growth Marketing Officer",
     image: "https://i.postimg.cc/SRLk3Fr5/1000094939.jpg",
     email: "rawnak.jahan@aiavatar.work",
@@ -142,7 +142,7 @@ export const employees: Employee[] = [
   {
     id: 9,
     name: "Aftab Ayub Onick",
-    slug: "aftabayubonick",
+    slug: "rawnakjahan",
     role: "Video Editor",
     image: "https://i.postimg.cc/1XPDPhk6/Aftab-Ayub-Onick-1.jpg",
     email: "aftab.ayub@aiavatar.com.bd",
