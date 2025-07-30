@@ -142,7 +142,7 @@ export const employees: Employee[] = [
   {
     id: 9,
     name: "Aftab Ayub Onick",
-    slug: "aftabayubonick",
+    slug: "ABD0015",
     role: "Video Editor",
     image: "https://i.postimg.cc/1XPDPhk6/Aftab-Ayub-Onick-1.jpg",
     email: "aftab.ayub@aiavatar.com.bd",
