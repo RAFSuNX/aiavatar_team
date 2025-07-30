@@ -5,44 +5,42 @@
 @layer base {
   :root {
     /* Primary Colors */
-    --color-primary: 164 72 141;    /* #A4488D */
-    --color-primary-light: 180 96 161;  /* Lighter variant of A4488D */
-    --color-primary-dark: 140 48 117;   /* Darker variant of A4488D */
+    --color-primary: 231 11 59;        /* #E70B3B */
+    --color-primary-light: 255 51 102;  /* Lighter variant of E70B3B */
+    --color-primary-dark: 184 9 47;     /* Darker variant of E70B3B */
     
     /* Secondary Colors */
-    --color-secondary: 89 56 150;   /* #593896 */
-    --color-secondary-light: 111 78 172;  /* Lighter variant of 593896 */
-    --color-secondary-dark: 67 34 128;    /* Darker variant of 593896 */
+    --color-secondary: 255 255 255;    /* #FFFFFF */
+    --color-secondary-light: 229 229 229;  /* Light gray */
+    --color-secondary-dark: 156 163 175;   /* Medium gray */
     
     /* Accent Color */
-    --color-accent: 35 114 187;     /* #2372BB */
+    --color-accent: 231 11 59;         /* #E70B3B */
     
     /* Background Colors */
-    --color-background-start: 0 0 0;   /* #000000 */
-    --color-background-end: 20 20 20;  /* Slightly lighter than black */
-    --color-surface: 30 30 30;         /* Dark surface */
-    --color-surface-light: 40 40 40;   /* Lighter surface */
-    --color-surface-dark: 10 10 10;    /* Darker surface */
+    --color-background: 0 0 0;         /* #000000 */
+    --color-surface: 17 17 17;         /* Very dark gray */
+    --color-surface-light: 31 31 31;   /* Dark gray */
+    --color-surface-dark: 0 0 0;       /* Pure black */
     
     /* Text Colors */
-    --color-text: 255 255 255;      /* #FFFFFF */
-    --color-text-secondary: 200 200 200;  /* Light gray */
-    --color-text-muted: 150 150 150;     /* Muted gray */
+    --color-text: 255 255 255;         /* #FFFFFF */
+    --color-text-secondary: 156 163 175; /* Light gray */
+    --color-text-muted: 107 114 128;   /* Medium gray */
     
     /* Border Colors */
-    --color-border: 164 72 141;  /* #A4488D */
-    --color-border-light: 180 96 161;  /* Lighter variant of A4488D */
+    --color-border: 231 11 59;         /* #E70B3B */
+    --color-border-light: 255 51 102;  /* Lighter variant of E70B3B */
   }
 
   body {
-    @apply bg-[url('/src/data/images/suzuverse_bg2.jpg')] bg-cover bg-center bg-fixed;
-    @apply before:content-[''] before:absolute before:inset-0 before:bg-black/70 before:backdrop-blur-sm before:-z-10;
-    @apply text-[rgb(var(--color-text))];
+    @apply bg-black;
+    @apply text-white;
     @apply relative;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-[rgb(var(--color-text))];
+    @apply font-bold text-white;
   }
 
   a {
@@ -50,9 +48,9 @@
   }
 
   input, textarea, select {
-    @apply bg-[rgb(var(--color-surface))]/80 border-[0.5px] border-[rgb(var(--color-border))];
-    @apply focus:border-[0.5px] focus:border-[rgb(var(--color-primary))] focus:ring-0;
-    @apply text-[rgb(var(--color-text))] placeholder-[rgb(var(--color-text-muted))];
+    @apply bg-[rgb(var(--color-surface))] border border-gray-700;
+    @apply focus:border-[rgb(var(--color-primary))] focus:ring-1 focus:ring-[rgb(var(--color-primary))];
+    @apply text-white placeholder-[rgb(var(--color-text-muted))];
     @apply transition-colors duration-200;
   }
 
@@ -63,31 +61,31 @@
 
 @layer components {
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#A4488D] via-[#593896] to-[#2372BB];
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#E70B3B] via-white to-[#E70B3B];
     @apply animate-gradient;
   }
   
   .gradient-border {
-    @apply relative before:absolute before:inset-0 before:p-[0.5px];
-    @apply before:bg-gradient-to-r before:from-[#A4488D] before:via-[#593896] before:to-[#2372BB];
+    @apply relative before:absolute before:inset-0 before:p-[1px];
+    @apply before:bg-gradient-to-r before:from-[#E70B3B] before:via-white before:to-[#E70B3B];
     @apply before:-z-10;
-    @apply hover:before:p-[0.5px] hover:scale-[1.02] transition-transform duration-300;
+    @apply hover:before:p-[1px] hover:scale-[1.02] transition-transform duration-300;
   }
 
   .gradient-bg {
-    @apply bg-transparent;
+    @apply bg-black;
   }
 
   .surface {
-    @apply bg-[rgb(var(--color-surface))]/50 backdrop-blur-sm;
+    @apply bg-[rgb(var(--color-surface))] shadow-sm;
   }
 
   .surface-light {
-    @apply bg-[rgb(var(--color-surface-light))]/50 backdrop-blur-sm;
+    @apply bg-[rgb(var(--color-surface-light))] shadow-sm;
   }
 
   .surface-dark {
-    @apply bg-[rgb(var(--color-surface-dark))]/50 backdrop-blur-sm;
+    @apply bg-black shadow-sm;
   }
 
   .card-hover {
@@ -101,18 +99,18 @@
   }
 
   .btn-primary {
-    @apply bg-[#A4488D] text-white;
+    @apply bg-[#E70B3B] text-white;
     @apply hover:bg-[rgb(var(--color-primary-dark))] hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-[#593896] text-white;
-    @apply hover:bg-[rgb(var(--color-secondary-dark))] hover:shadow-lg;
+    @apply bg-white text-black;
+    @apply hover:bg-gray-200 hover:shadow-lg;
   }
 
   .btn-outline {
-    @apply border-[0.5px] border-[#A4488D] rounded-lg;
-    @apply hover:border-[0.5px] hover:border-[#593896] hover:text-[#593896] hover:shadow-lg;
+    @apply border border-[#E70B3B] text-[#E70B3B];
+    @apply hover:bg-[#E70B3B] hover:text-white hover:shadow-lg;
   }
 }
 
@@ -139,10 +137,10 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[rgb(var(--color-background-start))];
+  @apply bg-gray-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-[#A4488D] rounded-full;
+  @apply bg-[#E70B3B] rounded-full;
   @apply hover:bg-[rgb(var(--color-primary-light))];
 }
