@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { employees } from '../data/employees';
 import { useEffect, useState } from 'react';
-import { Mail, Phone, Building, User, ArrowLeft, Calendar, MapPin } from 'lucide-react';
+import { Mail, Phone, Building2, User, ArrowLeft, MapPin, Code, Cpu, Target, CheckCircle, ExternalLink } from 'lucide-react';
 
 export default function EmployeeDetail() {
   const { slug } = useParams();
@@ -15,15 +15,24 @@ export default function EmployeeDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-16 h-16 relative">
-          <div className="w-16 h-16 rounded-full absolute border-2 border-transparent animate-spin"
-               style={{
-                 borderTopColor: '#E70B3B',
-                 borderRightColor: '#404040',
-                 borderBottomColor: '#E70B3B'
-               }}>
+      <div className="min-h-screen bg-[rgb(var(--color-background))] flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="floating-orb absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-r from-blue-500/15 to-violet-500/15"></div>
+          <div className="floating-orb absolute bottom-1/3 right-1/3 w-64 h-64 bg-gradient-to-l from-violet-500/10 to-blue-500/10"></div>
+        </div>
+        
+        <div className="relative z-10 text-center">
+          <div className="w-20 h-20 relative mb-6">
+            <div className="absolute inset-0 rounded-full border-2 border-transparent animate-spin border-t-blue-500 border-r-violet-500"></div>
+            <div className="absolute inset-3 rounded-full border-2 border-transparent animate-spin border-t-violet-500 border-l-blue-500" style={{ animationDirection: 'reverse' }}></div>
+            <div className="absolute inset-6 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center">
+              <User className="w-6 h-6 text-white" />
+            </div>
           </div>
+          <div className="tech-gradient-text text-2xl font-semibold mb-2">
+            Loading Profile
+          </div>
+          <div className="text-slate-400 text-sm">Fetching team member data</div>
         </div>
       </div>
     );
@@ -31,19 +40,30 @@ export default function EmployeeDetail() {
 
   if (!employee) {
     return (
-      <div className="min-h-screen bg-black text-white p-4 sm:p-6 md:p-8 flex items-center justify-center">
-        <div className="w-[95vw] sm:max-w-md text-center">
-          <div className="p-[1px] bg-gradient-to-r from-[#E70B3B] via-white to-[#E70B3B] rounded-lg">
-            <div className="relative bg-gray-900 p-8 rounded-lg">
-              <h1 className="text-2xl sm:text-3xl font-bold mb-4 gradient-text">Employee not found</h1>
-              <p className="text-gray-400 mb-6">The employee you're looking for doesn't exist or has been removed.</p>
-              <Link 
-                to="/" 
-                className="text-white hover:text-[#E70B3B] transition-colors"
-              >
-                ← Back to Team
-              </Link>
+      <div className="min-h-screen bg-[rgb(var(--color-background))] text-[rgb(var(--color-text))] flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="floating-orb absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-violet-500/10"></div>
+          <div className="floating-orb absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-bl from-violet-500/8 to-blue-500/8"></div>
+        </div>
+        
+        <div className="relative z-10 text-center max-w-2xl mx-auto px-6">
+          <div className="glass-panel rounded-2xl p-12">
+            <div className="w-20 h-20 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+              <User className="w-10 h-10 text-slate-400" />
             </div>
+            <h1 className="text-3xl font-bold mb-6 tech-gradient-text">
+              Team Member Not Found
+            </h1>
+            <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+              The team member you're looking for doesn't exist in our directory.
+            </p>
+            <Link 
+              to="/" 
+              className="tech-button text-white font-medium inline-flex items-center gap-3"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Team Directory
+            </Link>
           </div>
         </div>
       </div>
@@ -51,184 +71,204 @@ export default function EmployeeDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Navigation Header */}
-      <div className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800">
-        <div className="max-w-5xl mx-auto px-6 py-4">
+    <div className="min-h-screen bg-[rgb(var(--color-background))] text-[rgb(var(--color-text))] relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="floating-orb absolute top-10 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/8 to-violet-500/8"></div>
+        <div className="floating-orb absolute top-1/2 right-10 w-64 h-64 bg-gradient-to-bl from-violet-500/6 to-blue-500/6"></div>
+        <div className="floating-orb absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-tr from-blue-500/10 to-violet-500/10"></div>
+      </div>
+
+      {/* Navigation */}
+      <div className="sticky top-0 z-50 backdrop-blur-xl bg-[rgb(var(--color-background))]/80 border-b border-slate-700/50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-white hover:text-[#E70B3B] transition-all duration-300 group"
+            className="inline-flex items-center gap-3 text-slate-300 hover:text-blue-400 transition-all duration-300 group"
           >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span className="font-medium">Back to Team Directory</span>
+            <div className="w-10 h-10 rounded-xl bg-slate-800/50 group-hover:bg-blue-500/20 flex items-center justify-center transition-all duration-300 border border-slate-700/50 group-hover:border-blue-500/30">
+              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </div>
+            <span className="font-medium">Back to Team</span>
           </Link>
         </div>
       </div>
 
-      {/* Document Container */}
-      <div className="max-w-5xl mx-auto p-6 md:p-12">
-        <div className="bg-white text-black shadow-2xl rounded-lg overflow-hidden">
-          {/* Document Header */}
-          <div className="bg-gradient-to-r from-[#E70B3B] to-[#B8092E] text-white p-8 md:p-12">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <div className="w-2 h-2 bg-white/70 rounded-full"></div>
-              <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-              <span className="text-white/80 text-sm font-medium tracking-wider uppercase ml-4">
-                Employee Profile Document
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-2 tracking-tight">
-              {employee.name}
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 font-light">
-              {employee.role}
-            </p>
-          </div>
-
-          {/* Document Body */}
-          <div className="p-8 md:p-12">
-            {/* Profile Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-              {/* Photo and Basic Info */}
-              <div className="lg:col-span-1">
-                <div className="relative">
-                  <div className="aspect-[3/4] rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
-                    <img
-                      src={employee.image}
-                      alt={employee.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-[#E70B3B] rounded-full flex items-center justify-center">
-                    <User className="w-4 h-4 text-white" />
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+        {/* Profile Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+          {/* Profile Image */}
+          <div className="lg:col-span-1">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl blur opacity-20"></div>
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden tech-card">
+                <img
+                  src={employee.image}
+                  alt={employee.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                
+                {/* Status Badge */}
+                <div className="absolute top-4 right-4">
+                  <div className="tech-badge">
+                    <div className="status-indicator"></div>
+                    <span>Active</span>
                   </div>
                 </div>
                 
-                {/* Quick Stats */}
-                <div className="mt-8 space-y-4">
-                  <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
-                    <Building className="w-5 h-5 text-[#E70B3B]" />
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider">Department</p>
-                      <p className="font-semibold text-gray-900">{employee.department}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
-                    <Calendar className="w-5 h-5 text-[#E70B3B]" />
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider">Employee ID</p>
-                      <p className="font-semibold text-gray-900">EMP-{employee.id.toString().padStart(4, '0')}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Information */}
-              <div className="lg:col-span-2">
-                <div className="mb-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-8 h-8 bg-[#E70B3B] rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">01</span>
-                    </div>
-                    <h2 className="text-2xl font-bold text-gray-900">Contact Information</h2>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <a 
-                      href={`mailto:${employee.email}`}
-                      className="group p-6 border-2 border-gray-200 rounded-lg hover:border-[#E70B3B] transition-all duration-300 hover:shadow-lg"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-gray-100 group-hover:bg-[#E70B3B] rounded-lg flex items-center justify-center transition-colors">
-                          <Mail className="w-6 h-6 text-gray-600 group-hover:text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Email Address</p>
-                          <p className="font-semibold text-gray-900 group-hover:text-[#E70B3B] transition-colors break-all">
-                            {employee.email}
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-
-                    <a 
-                      href={`tel:${employee.phone.replace(/\s+/g, '')}`}
-                      className="group p-6 border-2 border-gray-200 rounded-lg hover:border-[#E70B3B] transition-all duration-300 hover:shadow-lg"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-gray-100 group-hover:bg-[#E70B3B] rounded-lg flex items-center justify-center transition-colors">
-                          <Phone className="w-6 h-6 text-gray-600 group-hover:text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Phone Number</p>
-                          <p className="font-semibold text-gray-900 group-hover:text-[#E70B3B] transition-colors">
-                            {employee.phone}
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Office Location */}
-                <div className="p-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#E70B3B] rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Office Location</p>
-                      <p className="font-semibold text-gray-900 leading-relaxed">
-                        House No-6 (5th Floor), Road No - 2/B,<br />
-                        Baridhara J Block, Dhaka 1212, Bangladesh
-                      </p>
-                    </div>
+                {/* Employee ID */}
+                <div className="absolute bottom-4 left-4">
+                  <div className="glass-panel rounded-lg px-3 py-2">
+                    <p className="text-xs text-slate-400 uppercase tracking-wider">Employee ID</p>
+                    <p className="text-white font-mono font-semibold">EMP-{employee.id.toString().padStart(4, '0')}</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Responsibilities Section */}
-            <div className="border-t-2 border-gray-100 pt-12">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 bg-[#E70B3B] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">02</span>
-                </div>
-                <h2 className="text-2xl font-bold text-gray-900">Key Responsibilities</h2>
+          {/* Profile Info */}
+          <div className="lg:col-span-2 flex flex-col justify-center space-y-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <Cpu className="w-6 h-6 text-blue-400" />
+                <div className="h-px flex-1 bg-gradient-to-r from-blue-500/50 via-violet-500/30 to-transparent"></div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {employee.responsibilities.map((responsibility, index) => (
-                  <div 
-                    key={index}
-                    className="group p-6 bg-white border-2 border-gray-200 rounded-lg hover:border-[#E70B3B] hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-gray-100 group-hover:bg-[#E70B3B] rounded-full flex items-center justify-center transition-colors flex-shrink-0 mt-1">
-                        <span className="text-sm font-bold text-gray-600 group-hover:text-white">
-                          {(index + 1).toString().padStart(2, '0')}
-                        </span>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed font-medium">
-                        {responsibility}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <span className="tech-gradient-text">
+                  {employee.name}
+                </span>
+              </h1>
+              
+              <div className="space-y-4 mb-8">
+                <div className="tech-badge text-lg px-4 py-2">
+                  <Target className="w-5 h-5 text-blue-400" />
+                  <span className="font-semibold">{employee.role}</span>
+                </div>
+                
+                <div className="tech-badge text-base px-4 py-2 bg-violet-500/10 border-violet-500/20">
+                  <Building2 className="w-4 h-4 text-violet-400" />
+                  <span>{employee.department}</span>
+                </div>
               </div>
             </div>
 
-            {/* Document Footer */}
-            <div className="border-t-2 border-gray-100 mt-16 pt-8">
-              <div className="flex items-center justify-between text-sm text-gray-500">
+            {/* Contact Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <a 
+                href={`mailto:${employee.email}`}
+                className="group tech-card rounded-xl p-6 hover:scale-105 transition-all duration-300"
+              >
                 <div className="flex items-center gap-4">
-                  <div className="w-2 h-2 bg-[#E70B3B] rounded-full"></div>
-                  <span>Team Ai Avatar Bangladesh</span>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Email</p>
+                    <p className="font-semibold text-white group-hover:text-blue-400 transition-colors truncate">
+                      {employee.email}
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-400 transition-colors" />
                 </div>
+              </a>
+
+              <a 
+                href={`tel:${employee.phone.replace(/\s+/g, '')}`}
+                className="group tech-card rounded-xl p-6 hover:scale-105 transition-all duration-300"
+              >
                 <div className="flex items-center gap-4">
-                  <span>Employee Profile Document</span>
-                  <div className="w-2 h-2 bg-[#E70B3B] rounded-full"></div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Phone</p>
+                    <p className="font-semibold text-white group-hover:text-violet-400 transition-colors">
+                      {employee.phone}
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-violet-400 transition-colors" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Divider */}
+        <div className="section-divider">
+          <div className="section-divider-icon">
+            <Code className="w-5 h-5 text-blue-400" />
+          </div>
+        </div>
+
+        {/* Responsibilities Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 tech-gradient-text">
+              Core Responsibilities
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Key areas of expertise and primary responsibilities within the organization
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {employee.responsibilities.map((responsibility, index) => (
+              <div 
+                key={index}
+                className="group tech-card rounded-xl p-6 hover:scale-105 transition-all duration-300"
+                style={{
+                  opacity: 0,
+                  animation: 'fadeInUp 0.6s ease forwards',
+                  animationDelay: `${index * 150}ms`
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0 border border-slate-600/50">
+                    <CheckCircle className="w-6 h-6 text-green-400" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white text-base leading-relaxed font-medium group-hover:text-blue-400 transition-colors">
+                      {responsibility}
+                    </p>
+                    <div className="w-0 h-0.5 bg-gradient-to-r from-blue-500 to-violet-500 group-hover:w-full transition-all duration-500 delay-100 mt-3"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Office Location */}
+        <div className="text-center">
+          <div className="relative inline-block max-w-4xl mx-auto">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 via-violet-500/10 to-blue-500/10 rounded-2xl blur-xl"></div>
+            <div className="relative glass-panel rounded-2xl p-12">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <MapPin className="w-6 h-6 text-blue-400" />
+                <div className="status-indicator"></div>
+              </div>
+              
+              <h3 className="text-2xl lg:text-3xl font-bold mb-6 tech-gradient-text">
+                Office Location
+              </h3>
+              
+              <p className="text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+                House No-6 (5th Floor), Road No - 2/B,<br />
+                Baridhara J Block, Dhaka 1212, Bangladesh
+              </p>
+              
+              <div className="flex items-center justify-center gap-8 pt-6 border-t border-slate-700/50">
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <Building2 className="w-4 h-4 text-blue-400" />
+                  <span>Tech Hub</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <Code className="w-4 h-4 text-violet-400" />
+                  <span>AI Development Center</span>
                 </div>
               </div>
             </div>
