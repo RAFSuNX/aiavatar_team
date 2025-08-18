@@ -1,5 +1,6 @@
 export interface Employee {
   id: number;
+  employeeId: string;
   name: string;
   slug: string;
   role: string;
@@ -21,6 +22,7 @@ export interface Employee {
 export const employees: Employee[] = [
   {
     id: 1,
+    employeeId: "AUS0012",
     name: "ARIFUL GONI",
     slug: "AUS0012",
     role: "Country Director",
@@ -45,6 +47,7 @@ export const employees: Employee[] = [
   },
   {
     id: 2,
+    employeeId: "ABD0003",
     name: "MD SAKIBUL HASAN",
     slug: "ABD0003",
     role: "Operations Lead & Admin",
@@ -69,6 +72,7 @@ export const employees: Employee[] = [
   },
   {
     id: 3,
+    employeeId: "ABD0004",
     name: "HOSSAINUZZAMAN",
     slug: "ABD0004",
     role: "Marketing Lead",
@@ -93,6 +97,7 @@ export const employees: Employee[] = [
   },
   {
     id: 4,
+    employeeId: "ABD0007",
     name: "ASHFAQ UL HAQ ONI",
     slug: "ABD0007",
     role: "Senior Accountant",
@@ -117,6 +122,7 @@ export const employees: Employee[] = [
   },
   {
     id: 5,
+    employeeId: "ABD0009",
     name: "MD ASHEK HASAN RAFSUN",
     slug: "ABD0009",
     role: "Project Specialist",
@@ -141,6 +147,7 @@ export const employees: Employee[] = [
   },
   {
     id: 6,
+    employeeId: "ABD0010",
     name: "ZAHIR UDDIN TIPU",
     slug: "ABD0010",
     role: "Lead Designer",
@@ -165,6 +172,7 @@ export const employees: Employee[] = [
   },
   {
     id: 8,
+    employeeId: "ABD0012",
     name: "Rawnak Jahan",
     slug: "ABD0012",
     role: "Growth Marketing Officer",
@@ -189,6 +197,7 @@ export const employees: Employee[] = [
   },
   {
     id: 9,
+    employeeId: "ABD0013",
     name: "Aftab Ayub Onick",
     slug: "ABD0013",
     role: "Video Editor & Visualizer",
