@@ -14,7 +14,10 @@ import {
   Briefcase,
   Award,
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  Minus,
+  Plus,
+  Square
 } from 'lucide-react';
 
 export default function EmployeeDetail() {
@@ -23,21 +26,26 @@ export default function EmployeeDetail() {
   const employee = employees.find(emp => emp.slug === slug);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 600);
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[rgb(var(--color-background))] flex items-center justify-center">
+      <div className="min-h-screen bg-[rgb(var(--color-background))] flex items-center justify-center geometric-bg">
         <div className="text-center">
-          <div className="organization-seal mb-6">
-            <User className="w-8 h-8 text-white" />
+          <div className="organization-seal mb-8">
+            <User className="w-10 h-10 text-white" />
           </div>
-          <div className="text-xl font-semibold text-[rgb(var(--color-text))] mb-2">
-            Loading Personnel Record
+          <div className="text-2xl font-bold text-[rgb(var(--color-text))] mb-4 mono-text loading-line">
+            LOADING PERSONNEL RECORD
           </div>
-          <div className="text-[rgb(var(--color-text-muted))]">Please wait...</div>
+          <div className="text-[rgb(var(--color-text-muted))] mono-text">PLEASE STAND BY...</div>
+          <div className="mt-6 flex justify-center space-x-2">
+            <div className="w-2 h-8 bg-[rgb(var(--color-accent))] animate-pulse"></div>
+            <div className="w-2 h-8 bg-[rgb(var(--color-text))] animate-pulse" style={{animationDelay: '0.2s'}}></div>
+            <div className="w-2 h-8 bg-[rgb(var(--color-accent))] animate-pulse" style={{animationDelay: '0.4s'}}></div>
+          </div>
         </div>
       </div>
     );
@@ -45,21 +53,21 @@ export default function EmployeeDetail() {
 
   if (!employee) {
     return (
-      <div className="min-h-screen bg-[rgb(var(--color-background))] flex items-center justify-center">
-        <div className="max-w-md mx-auto px-6">
+      <div className="min-h-screen bg-[rgb(var(--color-background))] flex items-center justify-center geometric-bg">
+        <div className="max-w-lg mx-auto px-8">
           <div className="document-section text-center">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[rgb(var(--color-surface-secondary))] flex items-center justify-center">
-              <User className="w-8 h-8 text-[rgb(var(--color-text-muted))]" />
+            <div className="w-24 h-24 mx-auto mb-8 border-4 border-[rgb(var(--color-border))] flex items-center justify-center">
+              <User className="w-12 h-12 text-[rgb(var(--color-text-muted))]" />
             </div>
-            <h1 className="text-2xl font-bold text-[rgb(var(--color-text))] mb-4">
-              Personnel Record Not Found
+            <h1 className="text-3xl font-bold text-[rgb(var(--color-text))] mb-6 mono-text">
+              PERSONNEL RECORD NOT FOUND
             </h1>
-            <p className="text-[rgb(var(--color-text-secondary))] mb-6">
+            <p className="text-[rgb(var(--color-text-secondary))] mb-8 text-lg">
               The requested employee record could not be located in our directory.
             </p>
             <Link to="/" className="primary-button">
-              <ArrowLeft className="w-4 h-4" />
-              Return to Directory
+              <ArrowLeft className="w-5 h-5" />
+              RETURN TO DIRECTORY
             </Link>
           </div>
         </div>
@@ -74,60 +82,63 @@ export default function EmployeeDetail() {
   });
 
   return (
-    <div className="min-h-screen bg-[rgb(var(--color-background))]">
+    <div className="min-h-screen bg-[rgb(var(--color-background))] geometric-bg">
       {/* Document Header */}
       <header className="document-header">
-        <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="max-w-7xl mx-auto px-8 py-8">
           <div className="flex items-center justify-between">
             <Link to="/" className="back-button no-print">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Directory
+              <ArrowLeft className="w-5 h-5" />
+              BACK TO DIRECTORY
             </Link>
             <div className="text-right">
               <div className="document-meta">
-                Personnel Record | {currentDate}
+                PERSONNEL RECORD | {currentDate.toUpperCase()}
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-8 py-12">
         {/* Employee Profile Header */}
         <section className="document-section">
-          <div className="letterhead mb-8">
+          <div className="letterhead mb-12">
             <div className="organization-seal">
-              <Building2 className="w-8 h-8 text-white" />
+              <Building2 className="w-10 h-10 text-white" />
             </div>
-            <h1 className="document-title text-3xl text-[rgb(var(--color-text))] mb-2">
-              Official Personnel Record
+            <h1 className="document-title text-4xl text-[rgb(var(--color-text))] mb-4 line-decoration">
+              OFFICIAL PERSONNEL RECORD
             </h1>
-            <div className="document-meta">
-              Employee ID: EMP-{employee.id.toString().padStart(4, '0')} | 
-              Classification: Confidential
+            <div className="flex items-center justify-center space-x-8 mb-6">
+              <Minus className="w-12 h-1 text-[rgb(var(--color-accent))]" />
+              <div className="document-meta">
+                EMPLOYEE ID: EMP-{employee.id.toString().padStart(4, '0')} | CLASSIFICATION: CONFIDENTIAL
+              </div>
+              <Minus className="w-12 h-1 text-[rgb(var(--color-accent))]" />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Employee Photo */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-2">
               <div className="professional-card overflow-hidden">
-                <div className="relative">
+                <div className="relative photo-frame">
                   <img
                     src={employee.image}
                     alt={`${employee.name} - Official Portrait`}
-                    className="w-full aspect-[4/5] object-cover"
+                    className="w-full aspect-[4/5] object-cover filter grayscale"
                   />
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-6 right-6">
                     <div className="status-badge">
-                      <Shield className="w-3 h-3 mr-1" />
-                      Active
+                      <Shield className="w-3 h-3 mr-2" />
+                      ACTIVE
                     </div>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="bg-white/95 backdrop-blur-sm p-4 border-l-4 border-[rgb(var(--color-accent))]">
                       <div className="document-meta text-center">
-                        Official Portrait
+                        OFFICIAL PORTRAIT | {currentDate.toUpperCase()}
                       </div>
                     </div>
                   </div>
@@ -136,55 +147,56 @@ export default function EmployeeDetail() {
             </div>
 
             {/* Employee Information */}
-            <div className="lg:col-span-2">
-              <div className="space-y-6">
+            <div className="lg:col-span-3">
+              <div className="space-y-8">
                 {/* Basic Information */}
                 <div>
-                  <h2 className="section-title">Personal Information</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <h3 className="text-2xl font-bold text-[rgb(var(--color-text))] mb-2">
+                  <h2 className="section-title">PERSONAL INFORMATION</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="border-l-4 border-[rgb(var(--color-accent))] pl-6">
+                      <h3 className="text-3xl font-bold text-[rgb(var(--color-text))] mb-4 mono-text">
                         {employee.name}
                       </h3>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-3">
-                          <Briefcase className="w-4 h-4 accent-text" />
-                          <span className="font-medium text-[rgb(var(--color-text))]">
-                            {employee.role}
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4">
+                          <Briefcase className="w-5 h-5 accent-text" />
+                          <span className="font-bold text-[rgb(var(--color-text))] mono-text">
+                            {employee.role.toUpperCase()}
                           </span>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <Building2 className="w-4 h-4 accent-text" />
-                          <span className="text-[rgb(var(--color-text-secondary))]">
-                            {employee.department} Department
+                        <div className="flex items-center gap-4">
+                          <Building2 className="w-5 h-5 accent-text" />
+                          <span className="text-[rgb(var(--color-text-secondary))] mono-text">
+                            {employee.department.toUpperCase()} DEPARTMENT
                           </span>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <Clock className="w-4 h-4 accent-text" />
-                          <span className="text-[rgb(var(--color-text-secondary))]">
-                            Full-time Employee
+                        <div className="flex items-center gap-4">
+                          <Clock className="w-5 h-5 accent-text" />
+                          <span className="text-[rgb(var(--color-text-secondary))] mono-text">
+                            FULL-TIME EMPLOYEE
                           </span>
                         </div>
                       </div>
                     </div>
-                    <div>
-                      <h4 className="subsection-title">Employment Status</h4>
-                      <div className="space-y-2">
+                    <div className="border-l-4 border-[rgb(var(--color-text))] pl-6">
+                      <h4 className="subsection-title mb-4">EMPLOYMENT STATUS</h4>
+                      <div className="space-y-4">
                         {employee.role.toLowerCase().includes('director') || 
                          employee.role.toLowerCase().includes('lead') ? (
                           <div className="executive-badge">
                             <Award className="w-4 h-4 mr-2" />
-                            Executive Level
+                            EXECUTIVE LEVEL
                           </div>
                         ) : (
                           <div className="department-badge">
                             <User className="w-4 h-4 mr-2" />
-                            Professional Staff
+                            PROFESSIONAL STAFF
                           </div>
                         )}
-                        <div className="document-meta">
-                          Status: Active Employment<br />
-                          Clearance: Internal Access
+                        <div className="document-meta space-y-1">
+                          <div>STATUS: ACTIVE EMPLOYMENT</div>
+                          <div>CLEARANCE: INTERNAL ACCESS</div>
+                          <div>LOCATION: DHAKA HEADQUARTERS</div>
                         </div>
                       </div>
                     </div>
@@ -193,32 +205,32 @@ export default function EmployeeDetail() {
 
                 {/* Contact Information */}
                 <div>
-                  <h3 className="section-title">Contact Information</h3>
+                  <h3 className="section-title">CONTACT INFORMATION</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="professional-card p-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Mail className="w-5 h-5 accent-text" />
-                        <span className="font-medium text-[rgb(var(--color-text))]">
-                          Official Email
+                    <div className="professional-card p-6">
+                      <div className="flex items-center gap-4 mb-4">
+                        <Mail className="w-6 h-6 accent-text" />
+                        <span className="font-bold text-[rgb(var(--color-text))] mono-text">
+                          OFFICIAL EMAIL
                         </span>
                       </div>
                       <a 
                         href={`mailto:${employee.email}`}
-                        className="contact-link text-lg"
+                        className="contact-link text-lg mono-text"
                       >
                         {employee.email}
                       </a>
                     </div>
-                    <div className="professional-card p-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Phone className="w-5 h-5 accent-text" />
-                        <span className="font-medium text-[rgb(var(--color-text))]">
-                          Direct Line
+                    <div className="professional-card p-6">
+                      <div className="flex items-center gap-4 mb-4">
+                        <Phone className="w-6 h-6 accent-text" />
+                        <span className="font-bold text-[rgb(var(--color-text))] mono-text">
+                          DIRECT LINE
                         </span>
                       </div>
                       <a 
                         href={`tel:${employee.phone.replace(/\s+/g, '')}`}
-                        className="contact-link text-lg"
+                        className="contact-link text-lg mono-text"
                       >
                         {employee.phone}
                       </a>
@@ -233,23 +245,25 @@ export default function EmployeeDetail() {
         {/* Job Responsibilities */}
         <section className="document-section">
           <h2 className="section-title">
-            <FileText className="inline-block w-6 h-6 mr-2" />
-            Official Job Description & Responsibilities
+            <FileText className="inline-block w-8 h-8 mr-4" />
+            OFFICIAL JOB DESCRIPTION & RESPONSIBILITIES
           </h2>
-          <div className="space-y-4">
-            <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
-              The following outlines the primary responsibilities and duties assigned to this position 
-              within the organizational structure of AI Avatar Bangladesh:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-6">
+            <div className="border-l-4 border-[rgb(var(--color-accent))] pl-6">
+              <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed text-lg">
+                The following outlines the primary responsibilities and duties assigned to this position 
+                within the organizational structure of <strong>AI Avatar Bangladesh</strong>:
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {employee.responsibilities.map((responsibility, index) => (
                 <div 
                   key={index}
                   className="responsibility-card"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full accent-bg flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle2 className="w-4 h-4 text-white" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 border-2 border-[rgb(var(--color-accent))] flex items-center justify-center flex-shrink-0 mt-1">
+                      <Square className="w-3 h-3 fill-[rgb(var(--color-accent))] text-[rgb(var(--color-accent))]" />
                     </div>
                     <div>
                       <p className="text-[rgb(var(--color-text))] font-medium leading-relaxed">
@@ -266,45 +280,43 @@ export default function EmployeeDetail() {
         {/* Organization Context */}
         <section className="document-section">
           <h2 className="section-title">
-            <Building2 className="inline-block w-6 h-6 mr-2" />
-            Organizational Context
+            <Building2 className="inline-block w-8 h-8 mr-4" />
+            ORGANIZATIONAL CONTEXT
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="subsection-title">Department Structure</h3>
-              <div className="professional-card p-4">
-                <dl className="space-y-3">
-                  <div>
-                    <dt className="font-medium text-[rgb(var(--color-text))]">Department:</dt>
-                    <dd className="text-[rgb(var(--color-text-secondary))]">{employee.department}</dd>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="border-l-4 border-[rgb(var(--color-accent))] pl-8">
+              <h3 className="subsection-title mb-6">DEPARTMENT STRUCTURE</h3>
+              <div className="professional-card p-6">
+                <dl className="space-y-4">
+                  <div className="flex justify-between border-b border-[rgb(var(--color-border))] pb-2">
+                    <dt className="font-bold text-[rgb(var(--color-text))] mono-text">DEPARTMENT:</dt>
+                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">{employee.department.toUpperCase()}</dd>
                   </div>
-                  <div>
-                    <dt className="font-medium text-[rgb(var(--color-text))]">Position Level:</dt>
-                    <dd className="text-[rgb(var(--color-text-secondary))]">
-                      {employee.role.toLowerCase().includes('director') ? 'Executive' :
-                       employee.role.toLowerCase().includes('lead') ? 'Management' : 'Professional'}
+                  <div className="flex justify-between border-b border-[rgb(var(--color-border))] pb-2">
+                    <dt className="font-bold text-[rgb(var(--color-text))] mono-text">POSITION LEVEL:</dt>
+                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">
+                      {employee.role.toLowerCase().includes('director') ? 'EXECUTIVE' :
+                       employee.role.toLowerCase().includes('lead') ? 'MANAGEMENT' : 'PROFESSIONAL'}
                     </dd>
                   </div>
-                  <div>
-                    <dt className="font-medium text-[rgb(var(--color-text))]">Reporting Structure:</dt>
-                    <dd className="text-[rgb(var(--color-text-secondary))]">
-                      Reports to Executive Management
-                    </dd>
+                  <div className="flex justify-between border-b border-[rgb(var(--color-border))] pb-2">
+                    <dt className="font-bold text-[rgb(var(--color-text))] mono-text">REPORTING:</dt>
+                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">EXECUTIVE MANAGEMENT</dd>
                   </div>
                 </dl>
               </div>
             </div>
-            <div>
-              <h3 className="subsection-title">Office Location</h3>
-              <div className="professional-card p-4">
-                <div className="flex items-start gap-3 mb-4">
-                  <MapPin className="w-5 h-5 accent-text mt-1" />
+            <div className="border-l-4 border-[rgb(var(--color-text))] pl-8">
+              <h3 className="subsection-title mb-6">OFFICE LOCATION</h3>
+              <div className="professional-card p-6">
+                <div className="flex items-start gap-4 mb-6">
+                  <MapPin className="w-6 h-6 accent-text mt-1" />
                   <div>
-                    <h4 className="font-medium text-[rgb(var(--color-text))] mb-2">
-                      Corporate Headquarters
+                    <h4 className="font-bold text-[rgb(var(--color-text))] mb-3 mono-text">
+                      CORPORATE HEADQUARTERS
                     </h4>
                     <address className="text-[rgb(var(--color-text-secondary))] not-italic leading-relaxed">
-                      House No-6 (5th Floor)<br />
+                      <strong>House No-6 (5th Floor)</strong><br />
                       Road No - 2/B, Baridhara J Block<br />
                       Dhaka 1212, Bangladesh
                     </address>
@@ -317,37 +329,46 @@ export default function EmployeeDetail() {
 
         {/* Document Authentication */}
         <section className="signature-section">
-          <div className="professional-card p-6">
-            <h3 className="subsection-title mb-4">Document Authentication</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <div className="document-meta space-y-1">
-                  <div className="flex items-center gap-2">
+          <div className="professional-card p-8">
+            <h3 className="subsection-title mb-6 text-center">DOCUMENT AUTHENTICATION</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="document-meta space-y-2">
+                  <div className="flex items-center justify-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <span>Generated: {currentDate}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4" />
-                    <span>Classification: Internal Use Only</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4" />
-                    <span>Document Type: Personnel Record</span>
+                    <span>GENERATED: {currentDate.toUpperCase()}</span>
                   </div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-sm text-[rgb(var(--color-text-muted))]">
-                  <strong>AI Avatar Bangladesh</strong><br />
-                  Human Resources Department<br />
-                  Official Personnel Directory
+              <div className="text-center">
+                <div className="document-meta space-y-2">
+                  <div className="flex items-center justify-center gap-2">
+                    <Shield className="w-4 h-4" />
+                    <span>CLASSIFICATION: INTERNAL USE ONLY</span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="document-meta space-y-2">
+                  <div className="flex items-center justify-center gap-2">
+                    <FileText className="w-4 h-4" />
+                    <span>DOCUMENT TYPE: PERSONNEL RECORD</span>
+                  </div>
                 </div>
               </div>
             </div>
+            <div className="mt-8 pt-6 border-t-2 border-[rgb(var(--color-border))] text-center">
+              <div className="text-lg font-bold text-[rgb(var(--color-text))] mb-2 mono-text">
+                AI AVATAR BANGLADESH
+              </div>
+              <div className="text-sm text-[rgb(var(--color-text-secondary))] mono-text">
+                HUMAN RESOURCES DEPARTMENT | OFFICIAL PERSONNEL DIRECTORY
+              </div>
+            </div>
             <div className="mt-6 pt-4 border-t border-[rgb(var(--color-border))] text-center">
-              <p className="text-xs text-[rgb(var(--color-text-muted))]">
-                This document contains confidential and proprietary information. 
-                Unauthorized access, distribution, or reproduction is strictly prohibited and may be subject to legal action.
+              <p className="text-xs text-[rgb(var(--color-text-muted))] mono-text leading-relaxed">
+                THIS DOCUMENT CONTAINS CONFIDENTIAL AND PROPRIETARY INFORMATION. 
+                UNAUTHORIZED ACCESS, DISTRIBUTION, OR REPRODUCTION IS STRICTLY PROHIBITED AND MAY BE SUBJECT TO LEGAL ACTION.
               </p>
             </div>
           </div>
