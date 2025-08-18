@@ -24,7 +24,7 @@ export const employees: Employee[] = [
     id: 1,
     employeeId: "AUS0012",
     name: "ARIFUL GONI",
-    slug: "ariful-goni",
+    slug: "AUS0012",
     role: "Country Director",
     image: "https://i.ibb.co.com/J2fbMJp/ariful.png",
     email: "ariful@aiavatar.work",
