@@ -113,7 +113,7 @@ export default function EmployeeDetail() {
             <div className="flex items-center justify-center space-x-8 mb-6">
               <Minus className="w-12 h-1 text-[rgb(var(--color-accent))]" />
               <div className="document-meta">
-                EMPLOYEE ID: EMP-{employee.id.toString().padStart(4, '0')} | CLASSIFICATION: CONFIDENTIAL
+                EMPLOYEE ID: {employee.employeeId} | CLASSIFICATION: CONFIDENTIAL
               </div>
               <Minus className="w-12 h-1 text-[rgb(var(--color-accent))]" />
             </div>

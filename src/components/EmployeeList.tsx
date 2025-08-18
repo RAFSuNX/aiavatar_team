@@ -188,7 +188,7 @@ export default function EmployeeList() {
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                         <div className="text-white mono-text text-sm font-bold">
-                          EMP-{employee.id.toString().padStart(4, '0')}
+                          {employee.employeeId}
                         </div>
                       </div>
                     </div>
@@ -254,7 +254,7 @@ export default function EmployeeList() {
                       <div className="mt-8 pt-6 border-t-2 border-[rgb(var(--color-border))]">
                         <div className="document-meta text-center">
                           <span className="accent-text font-bold">
-                            EMPLOYEE ID: EMP-{employee.id.toString().padStart(4, '0')}
+                            EMPLOYEE ID: {employee.employeeId}
                           </span>
                         </div>
                       </div>
