@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { employees } from '../data/employees';
+import { employees, formatEmploymentStatus, getStatusBadgeColor } from '../data/employees';
 import { useState, useEffect } from 'react';
 import { Search, Users, Building2, Mail, Phone, MapPin, FileText, Calendar, Shield, Minus, Plus } from 'lucide-react';
 
@@ -166,20 +166,23 @@ export default function EmployeeList() {
                         className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                       />
                       <div className="absolute top-6 right-6">
-                        <div className="status-badge">
+                        <div className={getStatusBadgeColor(employee.employmentStatus)}>
                           <Shield className="w-3 h-3 mr-2" />
-                          ACTIVE
+                          {employee.employmentStatus}
                         </div>
                       </div>
                       <div className="absolute top-6 left-6">
-                        {employee.role.toLowerCase().includes('director') || 
-                         employee.role.toLowerCase().includes('lead') ? (
+                        {employee.positionLevel === 'EXECUTIVE' ? (
                           <div className="executive-badge">
                             EXECUTIVE
                           </div>
+                        ) : employee.positionLevel === 'MANAGEMENT' ? (
+                          <div className="executive-badge">
+                            MANAGEMENT
+                          </div>
                         ) : (
                           <div className="department-badge">
-                            {employee.department.toUpperCase()}
+                            {employee.departmentCode}
                           </div>
                         )}
                       </div>
@@ -203,7 +206,7 @@ export default function EmployeeList() {
                           </p>
                         </div>
                         <p className="text-sm text-[rgb(var(--color-text-muted))] mono-text">
-                          {employee.department.toUpperCase()} DEPARTMENT
+                          {employee.department.toUpperCase()} DEPARTMENT | {employee.positionLevel}
                         </p>
                       </header>
 

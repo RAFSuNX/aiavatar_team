@@ -207,6 +207,30 @@
     letter-spacing: 1px;
   }
 
+  .status-badge-warning {
+    @apply inline-flex items-center px-3 py-1 rounded-none text-xs font-bold mono-text;
+    background: rgb(255, 193, 7);
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .status-badge-info {
+    @apply inline-flex items-center px-3 py-1 rounded-none text-xs font-bold mono-text;
+    background: rgb(13, 202, 240);
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .status-badge-danger {
+    @apply inline-flex items-center px-3 py-1 rounded-none text-xs font-bold mono-text;
+    background: rgb(220, 53, 69);
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   /* Grid Layout */
   .document-grid {
     display: grid;

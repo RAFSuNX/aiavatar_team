@@ -7,6 +7,14 @@ export interface Employee {
   email: string;
   phone: string;
   department: string;
+  departmentCode: string;
+  positionLevel: 'EXECUTIVE' | 'MANAGEMENT' | 'PROFESSIONAL' | 'SPECIALIST';
+  employmentStatus: 'ACTIVE' | 'ON_LEAVE' | 'PROBATION' | 'TERMINATED';
+  employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERN';
+  reportsTo: string;
+  clearanceLevel: 'EXECUTIVE' | 'INTERNAL' | 'RESTRICTED' | 'PUBLIC';
+  officeLocation: string;
+  dateJoined: string;
   responsibilities: string[];
 }
 
@@ -20,6 +28,14 @@ export const employees: Employee[] = [
     email: "ariful@aiavatar.work",
     phone: "+880 1909-147875",
     department: "Management",
+    departmentCode: "MGT",
+    positionLevel: "EXECUTIVE",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Board of Directors",
+    clearanceLevel: "EXECUTIVE",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-01-15",
     responsibilities: [
       "Strategic AI avatar development",
       "Team leadership and innovation",
@@ -36,6 +52,14 @@ export const employees: Employee[] = [
     email: "sakibul@aiavatar.work",
     phone: "+880 1670-045360",
     department: "Operations",
+    departmentCode: "OPS",
+    positionLevel: "MANAGEMENT",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Country Director",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-02-01",
     responsibilities: [
       "Administrative oversight",
       "Operational management",
@@ -52,11 +76,19 @@ export const employees: Employee[] = [
     email: "hossain@aiavatar.work",
     phone: "+880 1712-2872443",
     department: "Marketing",
+    departmentCode: "MKT",
+    positionLevel: "MANAGEMENT",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Country Director",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-02-15",
     responsibilities: [
-      "Financial reporting",
-      "Budget management",
-      "Audit coordination",
-      "Tax compliance"
+      "Marketing strategy development",
+      "Brand management",
+      "Campaign coordination",
+      "Market analysis"
     ]
   },
   {
@@ -68,6 +100,14 @@ export const employees: Employee[] = [
     email: "ashfaq@aiavatar.work",
     phone: "+880 1841-367330",
     department: "Finance",
+    departmentCode: "FIN",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Operations Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-03-01",
     responsibilities: [
       "Financial analysis",
       "Account reconciliation",
@@ -84,11 +124,19 @@ export const employees: Employee[] = [
     email: "ashek.hasan@aiavatar.work",
     phone: "+880 1616-344922",
     department: "Customer Success",
+    departmentCode: "CS",
+    positionLevel: "SPECIALIST",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Operations Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-03-15",
     responsibilities: [
-      "Financial reporting",
-      "Budget management",
-      "Audit coordination",
-      "Tax compliance"
+      "Project coordination",
+      "Client relationship management",
+      "Quality assurance",
+      "Process improvement"
     ]
   },
   {
@@ -100,29 +148,21 @@ export const employees: Employee[] = [
     email: "zahir.uddin@aiavatar.work",
     phone: "+880 1827-122692",
     department: "Graphics",
+    departmentCode: "GFX",
+    positionLevel: "MANAGEMENT",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Country Director",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-04-01",
     responsibilities: [
-      "Financial reporting",
-      "Budget management",
-      "Audit coordination",
-      "Tax compliance"
+      "Creative direction",
+      "Design team leadership",
+      "Brand visual identity",
+      "Quality control"
     ]
   },
-  // {
-  //   id: 7,
-  //   name: "MD BACCHU KHAN",
-  //   slug: "bacchukhan",
-  //   role: "Market Research Analyst",
-  //   image: "https://i.imgur.com/7890123.png",
-  //   email: "bacchu.khan@aiavatar.work",
-  //   phone: "+880 1774-325360",
-  //   department: "Marketing",
-  //   responsibilities: [
-  //     "Financial reporting",
-  //     "Budget management",
-  //     "Audit coordination",
-  //     "Tax compliance"
-  //   ]
-  // },
   {
     id: 8,
     name: "Rawnak Jahan",
@@ -132,6 +172,14 @@ export const employees: Employee[] = [
     email: "rawnak.jahan@aiavatar.work",
     phone: "+880 1739-324424",
     department: "Marketing",
+    departmentCode: "MKT",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Marketing Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-05-01",
     responsibilities: [
       "Community building & event coordination",
       "Social media & communication skills",
@@ -148,6 +196,14 @@ export const employees: Employee[] = [
     email: "aftab.ayub@aiavatar.com.bd",
     phone: "+880 1634-305675",
     department: "Marketing",
+    departmentCode: "MKT",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Marketing Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-06-01",
     responsibilities: [
       "Generate Ai Videos",
       "Edit Videos",
@@ -156,3 +212,44 @@ export const employees: Employee[] = [
     ]
   }
 ];
+
+// Helper functions for display formatting
+export const formatEmploymentStatus = (status: Employee['employmentStatus']): string => {
+  const statusMap = {
+    'ACTIVE': 'ACTIVE EMPLOYMENT',
+    'ON_LEAVE': 'ON AUTHORIZED LEAVE',
+    'PROBATION': 'PROBATIONARY PERIOD',
+    'TERMINATED': 'EMPLOYMENT TERMINATED'
+  };
+  return statusMap[status];
+};
+
+export const formatEmploymentType = (type: Employee['employmentType']): string => {
+  const typeMap = {
+    'FULL_TIME': 'FULL-TIME EMPLOYEE',
+    'PART_TIME': 'PART-TIME EMPLOYEE',
+    'CONTRACT': 'CONTRACT EMPLOYEE',
+    'INTERN': 'INTERN'
+  };
+  return typeMap[type];
+};
+
+export const formatClearanceLevel = (level: Employee['clearanceLevel']): string => {
+  const levelMap = {
+    'EXECUTIVE': 'EXECUTIVE ACCESS',
+    'INTERNAL': 'INTERNAL ACCESS',
+    'RESTRICTED': 'RESTRICTED ACCESS',
+    'PUBLIC': 'PUBLIC ACCESS'
+  };
+  return levelMap[level];
+};
+
+export const getStatusBadgeColor = (status: Employee['employmentStatus']): string => {
+  const colorMap = {
+    'ACTIVE': 'status-badge',
+    'ON_LEAVE': 'status-badge-warning',
+    'PROBATION': 'status-badge-info',
+    'TERMINATED': 'status-badge-danger'
+  };
+  return colorMap[status];
+};

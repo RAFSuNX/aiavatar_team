@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { employees } from '../data/employees';
+import { employees, formatEmploymentStatus, formatEmploymentType, formatClearanceLevel, getStatusBadgeColor } from '../data/employees';
 import { useEffect, useState } from 'react';
 import { 
   Mail, 
@@ -130,9 +130,9 @@ export default function EmployeeDetail() {
                     className="w-full aspect-[4/5] object-cover filter grayscale"
                   />
                   <div className="absolute top-6 right-6">
-                    <div className="status-badge">
+                    <div className={getStatusBadgeColor(employee.employmentStatus)}>
                       <Shield className="w-3 h-3 mr-2" />
-                      ACTIVE
+                      {employee.employmentStatus}
                     </div>
                   </div>
                   <div className="absolute bottom-6 left-6 right-6">
@@ -173,7 +173,7 @@ export default function EmployeeDetail() {
                         <div className="flex items-center gap-4">
                           <Clock className="w-5 h-5 accent-text" />
                           <span className="text-[rgb(var(--color-text-secondary))] mono-text">
-                            FULL-TIME EMPLOYEE
+                            {formatEmploymentType(employee.employmentType)}
                           </span>
                         </div>
                       </div>
@@ -181,22 +181,31 @@ export default function EmployeeDetail() {
                     <div className="border-l-4 border-[rgb(var(--color-text))] pl-6">
                       <h4 className="subsection-title mb-4">EMPLOYMENT STATUS</h4>
                       <div className="space-y-4">
-                        {employee.role.toLowerCase().includes('director') || 
-                         employee.role.toLowerCase().includes('lead') ? (
+                        {employee.positionLevel === 'EXECUTIVE' ? (
                           <div className="executive-badge">
                             <Award className="w-4 h-4 mr-2" />
                             EXECUTIVE LEVEL
                           </div>
+                        ) : employee.positionLevel === 'MANAGEMENT' ? (
+                          <div className="executive-badge">
+                            <Award className="w-4 h-4 mr-2" />
+                            MANAGEMENT LEVEL
+                          </div>
+                        ) : employee.positionLevel === 'SPECIALIST' ? (
+                          <div className="department-badge">
+                            <User className="w-4 h-4 mr-2" />
+                            SPECIALIST LEVEL
+                          </div>
                         ) : (
                           <div className="department-badge">
                             <User className="w-4 h-4 mr-2" />
-                            PROFESSIONAL STAFF
+                            PROFESSIONAL LEVEL
                           </div>
                         )}
                         <div className="document-meta space-y-1">
-                          <div>STATUS: ACTIVE EMPLOYMENT</div>
-                          <div>CLEARANCE: INTERNAL ACCESS</div>
-                          <div>LOCATION: DHAKA HEADQUARTERS</div>
+                          <div>STATUS: {formatEmploymentStatus(employee.employmentStatus)}</div>
+                          <div>CLEARANCE: {formatClearanceLevel(employee.clearanceLevel)}</div>
+                          <div>LOCATION: {employee.officeLocation.toUpperCase()}</div>
                         </div>
                       </div>
                     </div>
@@ -294,14 +303,21 @@ export default function EmployeeDetail() {
                   </div>
                   <div className="flex justify-between border-b border-[rgb(var(--color-border))] pb-2">
                     <dt className="font-bold text-[rgb(var(--color-text))] mono-text">POSITION LEVEL:</dt>
-                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">
-                      {employee.role.toLowerCase().includes('director') ? 'EXECUTIVE' :
-                       employee.role.toLowerCase().includes('lead') ? 'MANAGEMENT' : 'PROFESSIONAL'}
-                    </dd>
+                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">{employee.positionLevel}</dd>
                   </div>
                   <div className="flex justify-between border-b border-[rgb(var(--color-border))] pb-2">
                     <dt className="font-bold text-[rgb(var(--color-text))] mono-text">REPORTING:</dt>
-                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">EXECUTIVE MANAGEMENT</dd>
+                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">{employee.reportsTo.toUpperCase()}</dd>
+                  </div>
+                  <div className="flex justify-between border-b border-[rgb(var(--color-border))] pb-2">
+                    <dt className="font-bold text-[rgb(var(--color-text))] mono-text">DATE JOINED:</dt>
+                    <dd className="text-[rgb(var(--color-text-secondary))] mono-text">
+                      {new Date(employee.dateJoined).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      }).toUpperCase()}
+                    </dd>
                   </div>
                 </dl>
               </div>
@@ -313,7 +329,7 @@ export default function EmployeeDetail() {
                   <MapPin className="w-6 h-6 accent-text mt-1" />
                   <div>
                     <h4 className="font-bold text-[rgb(var(--color-text))] mb-3 mono-text">
-                      CORPORATE HEADQUARTERS
+                      {employee.officeLocation.toUpperCase()}
                     </h4>
                     <address className="text-[rgb(var(--color-text-secondary))] not-italic leading-relaxed">
                       <strong>House No-6 (5th Floor)</strong><br />
