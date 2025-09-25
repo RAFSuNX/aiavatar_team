@@ -219,6 +219,31 @@ export const employees: Employee[] = [
       "Edit Ai Avatars",
       "Create Static & Motion Contents"
     ]
+  },
+  {
+    id: 10,
+    employeeId: "ABD0017",
+    name: "Md Mubarok Hasan",
+    slug: "ABD0017",
+    role: "Digital Marketing & Design",
+    image: "https://i.postimg.cc/FFWZ8Xdc/T036-PFGBPFX-U09-A54-DNRMY-3b5a6199b882-512.png",
+    email: "mubarok.hasan@aiavatar.com.bd",
+    phone: "+880 1301-329439",
+    department: "Marketing",
+    departmentCode: "MKT",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Marketing Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2025-08-14",
+    responsibilities: [
+      "Social Media Static Design",
+      "Content Planning & Posting Managemen",
+      "Edit Ai Avatars",
+      "Short-Form Video Editing"
+    ]
   }
 ];
 
