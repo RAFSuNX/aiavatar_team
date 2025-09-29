@@ -244,6 +244,78 @@ export const employees: Employee[] = [
       "Edit Ai Avatars",
       "Short-Form Video Editing"
     ]
+  },
+  {
+    id: 11,
+    employeeId: "ABD0014",
+    name: "Syed Ahnaf Atif Mahmood",
+    slug: "ABD0014",
+    role: "Sales Officer",
+    image: "https://i.postimg.cc/8zHrGngS/Whats-App-Image-2025-09-29-at-4-15-05-PM.jpg",
+    email: "ahnaf.atif@aiavatar.com.bd",
+    phone: "+880 1646-976632",
+    department: "Sales Officer",
+    departmentCode: "MKT",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Marketing Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2024-07-21",
+    responsibilities: [
+      "Contribution to Social media contents",
+      "Maintaining content calender",
+      "Create Static Contents"
+    ]
+  },
+  {
+    id: 12,
+    employeeId: "ABD0015",
+    name: "Md Shohidul Islam",
+    slug: "ABD0015",
+    role: "Sales Officer",
+    image: "https://i.postimg.cc/1XPDPhk6/Aftab-Ayub-Onick-1.jpg",
+    email: "shohidul.islam@aiavatar.com.bd",
+    phone: "+880 1916-601501",
+    department: "Marketing",
+    departmentCode: "MKT",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Marketing Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2025-07-21",
+    responsibilities: [
+      "Sales",
+      "Contributing Content Generate"
+    ]
+  },
+  {
+    id: 13,
+    employeeId: "ABD0018",
+    name: "Mahbub-E-Elahi",
+    slug: "ABD0018",
+    role: "Full stack developer (Flutter)",
+    image: "https://i.postimg.cc/k41rKS6z/Photo-of-Mahbub.jpg",
+    email: "mahbub.elahi@aiavatar.com.bd",
+    phone: "+880 1625-690544",
+    department: "Development",
+    departmentCode: "DEV",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Project Manager",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2025-08-21",
+    responsibilities: [
+      "Web development",
+      "Bug fixing",
+      "Database structure",
+      "Deployment"
+    ]
   }
 ];
 
