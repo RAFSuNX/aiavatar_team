@@ -275,7 +275,7 @@ export const employees: Employee[] = [
     name: "Md Shohidul Islam",
     slug: "ABD0015",
     role: "Sales Officer",
-    image: "https://i.postimg.cc/1XPDPhk6/Aftab-Ayub-Onick-1.jpg",
+    image: "https://i.postimg.cc/WpWrFydc/Whats-App-Image-2025-09-29-at-4-11-54-PM.jpg",
     email: "shohidul.islam@aiavatar.com.bd",
     phone: "+880 1916-601501",
     department: "Marketing",
