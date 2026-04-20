@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { employees, formatEmploymentStatus, getStatusBadgeColor } from '../data/employees';
 import { useState, useEffect } from 'react';
-import { Search, Users, Building2, Mail, Phone, MapPin, FileText, Calendar, Shield, Minus, Plus } from 'lucide-react';
+import { Search, Users, Building2, Mail, Phone, MapPin, FileText, Calendar, Shield, Minus } from 'lucide-react';
 
 export default function EmployeeList() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -78,29 +78,22 @@ export default function EmployeeList() {
             <FileText className="inline-block w-8 h-8 mr-4" />
             EXECUTIVE SUMMARY
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="stats-card">
-              <Users className="accent-icon mx-auto mb-4" />
-              <div className="text-4xl font-bold text-[rgb(var(--color-text))] mono-text">{employees.length.toString().padStart(2, '0')}</div>
-              <div className="text-sm text-[rgb(var(--color-text-muted))] mono-text font-bold mt-2">TOTAL PERSONNEL</div>
+              <Users className="accent-icon mx-auto mb-3" />
+              <div className="text-3xl font-bold text-[rgb(var(--color-text))] mono-text">{employees.length.toString().padStart(2, '0')}</div>
+              <div className="text-xs text-[rgb(var(--color-text-muted))] mono-text font-bold mt-2">TOTAL PERSONNEL</div>
             </div>
             <div className="stats-card">
-              <Building2 className="accent-icon mx-auto mb-4" />
-              <div className="text-4xl font-bold text-[rgb(var(--color-text))] mono-text">05</div>
-              <div className="text-sm text-[rgb(var(--color-text-muted))] mono-text font-bold mt-2">DEPARTMENTS</div>
+              <Building2 className="accent-icon mx-auto mb-3" />
+              <div className="text-3xl font-bold text-[rgb(var(--color-text))] mono-text">05</div>
+              <div className="text-xs text-[rgb(var(--color-text-muted))] mono-text font-bold mt-2">DEPARTMENTS</div>
             </div>
             <div className="stats-card">
-              <MapPin className="accent-icon mx-auto mb-4" />
-              <div className="text-4xl font-bold text-[rgb(var(--color-text))] mono-text">01</div>
-              <div className="text-sm text-[rgb(var(--color-text-muted))] mono-text font-bold mt-2">OFFICE LOCATION</div>
+              <MapPin className="accent-icon mx-auto mb-3" />
+              <div className="text-3xl font-bold text-[rgb(var(--color-text))] mono-text">01</div>
+              <div className="text-xs text-[rgb(var(--color-text-muted))] mono-text font-bold mt-2">OFFICE LOCATION</div>
             </div>
-          </div>
-          <div className="border-l-4 border-[rgb(var(--color-accent))] pl-6">
-            <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed text-lg">
-              This document presents the official organizational directory of <strong>AI Avatar Bangladesh</strong>, 
-              detailing our distinguished team members, their professional roles, and contact information. 
-              Our organization is committed to excellence in artificial intelligence and avatar technology development.
-            </p>
           </div>
         </section>
 
@@ -194,68 +187,37 @@ export default function EmployeeList() {
                     </div>
 
                     {/* Employee Information */}
-                    <div className="p-8">
-                      <header className="mb-6">
-                        <h3 className="text-2xl font-bold text-[rgb(var(--color-text))] mb-2 mono-text">
+                    <div className="p-6">
+                      <header className="mb-5">
+                        <h3 className="text-xl font-bold text-[rgb(var(--color-text))] mb-1 mono-text">
                           {employee.name}
                         </h3>
-                        <div className="flex items-center space-x-4 mb-2">
-                          <Plus className="w-4 h-4 text-[rgb(var(--color-accent))]" />
-                          <p className="text-[rgb(var(--color-text-secondary))] font-bold mono-text">
-                            {employee.role.toUpperCase()}
-                          </p>
-                        </div>
-                        <p className="text-sm text-[rgb(var(--color-text-muted))] mono-text">
-                          {employee.department.toUpperCase()} DEPARTMENT | {employee.positionLevel}
+                        <p className="text-sm font-semibold text-[rgb(var(--color-accent))] mono-text mb-1">
+                          {employee.role.toUpperCase()}
+                        </p>
+                        <p className="text-xs text-[rgb(var(--color-text-muted))] mono-text">
+                          {employee.department.toUpperCase()} DEPARTMENT
                         </p>
                       </header>
 
-                      <div className="space-y-4 mb-6">
-                        <div className="flex items-center gap-4 p-3 bg-[rgb(var(--color-surface-secondary))]">
-                          <Mail className="w-5 h-5 accent-text" />
-                          <span className="contact-link text-sm">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <Mail className="w-4 h-4 accent-text flex-shrink-0" />
+                          <span className="contact-link text-sm truncate">
                             {employee.email}
                           </span>
                         </div>
-                        <div className="flex items-center gap-4 p-3 bg-[rgb(var(--color-surface-secondary))]">
-                          <Phone className="w-5 h-5 accent-text" />
+                        <div className="flex items-center gap-3">
+                          <Phone className="w-4 h-4 accent-text flex-shrink-0" />
                           <span className="text-sm text-[rgb(var(--color-text-secondary))] mono-text">
                             {employee.phone}
                           </span>
                         </div>
                       </div>
 
-                      <div>
-                        <h4 className="subsection-title mb-4">KEY RESPONSIBILITIES:</h4>
-                        <div className="space-y-2">
-                          {employee.responsibilities.slice(0, 2).map((responsibility, i) => (
-                            <div key={i} className="responsibility-card">
-                              <div className="flex items-start gap-3">
-                                <div className="w-2 h-2 bg-[rgb(var(--color-accent))] mt-2 flex-shrink-0"></div>
-                                <p className="text-sm text-[rgb(var(--color-text-secondary))]">
-                                  {responsibility}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
-                          {employee.responsibilities.length > 2 && (
-                            <div className="responsibility-card">
-                              <div className="flex items-start gap-3">
-                                <Plus className="w-4 h-4 text-[rgb(var(--color-text-muted))] mt-1 flex-shrink-0" />
-                                <p className="text-sm text-[rgb(var(--color-text-muted))] mono-text font-bold">
-                                  +{employee.responsibilities.length - 2} ADDITIONAL RESPONSIBILITIES
-                                </p>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="mt-8 pt-6 border-t-2 border-[rgb(var(--color-border))]">
-                        <div className="document-meta text-center">
-                          <span className="accent-text font-bold">
-                            EMPLOYEE ID: {employee.employeeId}
-                          </span>
+                      <div className="mt-5 pt-4 border-t border-[rgb(var(--color-border))]">
+                        <div className="document-meta">
+                          ID: <span className="accent-text font-bold">{employee.employeeId}</span>
                         </div>
                       </div>
                     </div>

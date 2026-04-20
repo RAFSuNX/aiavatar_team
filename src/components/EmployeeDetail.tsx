@@ -343,50 +343,18 @@ export default function EmployeeDetail() {
           </div>
         </section>
 
-        {/* Document Authentication */}
+        {/* Footer */}
         <section className="signature-section">
-          <div className="professional-card p-8">
-            <h3 className="subsection-title mb-6 text-center">DOCUMENT AUTHENTICATION</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="document-meta space-y-2">
-                  <div className="flex items-center justify-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>GENERATED: {currentDate.toUpperCase()}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="document-meta space-y-2">
-                  <div className="flex items-center justify-center gap-2">
-                    <Shield className="w-4 h-4" />
-                    <span>CLASSIFICATION: INTERNAL USE ONLY</span>
-                  </div>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="document-meta space-y-2">
-                  <div className="flex items-center justify-center gap-2">
-                    <FileText className="w-4 h-4" />
-                    <span>DOCUMENT TYPE: PERSONNEL RECORD</span>
-                  </div>
-                </div>
-              </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="document-meta flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              <span>GENERATED: {currentDate.toUpperCase()}</span>
             </div>
-            <div className="mt-8 pt-6 border-t-2 border-[rgb(var(--color-border))] text-center">
-              <div className="text-lg font-bold text-[rgb(var(--color-text))] mb-2 mono-text">
-                AI AVATAR BANGLADESH
-              </div>
-              <div className="text-sm text-[rgb(var(--color-text-secondary))] mono-text">
-                HUMAN RESOURCES DEPARTMENT | OFFICIAL PERSONNEL DIRECTORY
-              </div>
+            <div className="document-meta flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              <span>CLASSIFICATION: INTERNAL USE ONLY</span>
             </div>
-            <div className="mt-6 pt-4 border-t border-[rgb(var(--color-border))] text-center">
-              <p className="text-xs text-[rgb(var(--color-text-muted))] mono-text leading-relaxed">
-                THIS DOCUMENT CONTAINS CONFIDENTIAL AND PROPRIETARY INFORMATION. 
-                UNAUTHORIZED ACCESS, DISTRIBUTION, OR REPRODUCTION IS STRICTLY PROHIBITED AND MAY BE SUBJECT TO LEGAL ACTION.
-              </p>
-            </div>
+            <div className="document-meta">AI AVATAR BANGLADESH - HR DEPARTMENT</div>
           </div>
         </section>
       </main>
