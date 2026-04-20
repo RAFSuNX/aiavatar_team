@@ -171,7 +171,7 @@ export const employees: Employee[] = [
     ]
   },
   {
-    id: 8,
+    id: 7,
     employeeId: "ABD0012",
     name: "Rawnak Jahan",
     slug: "ABD0012",
@@ -196,7 +196,7 @@ export const employees: Employee[] = [
     ]
   },
   {
-    id: 9,
+    id: 8,
     employeeId: "ABD0013",
     name: "Aftab Ayub Onick",
     slug: "ABD0013",
@@ -218,6 +218,29 @@ export const employees: Employee[] = [
       "Edit Videos",
       "Edit Ai Avatars",
       "Create Static & Motion Contents"
+    ]
+  },
+  {
+    id: 9,
+    employeeId: "ABD0015",
+    name: "Md Shohidul Islam",
+    slug: "ABD0015",
+    role: "Sales Officer",
+    image: "https://i.postimg.cc/WpWrFydc/Whats-App-Image-2025-09-29-at-4-11-54-PM.jpg",
+    email: "shohidul.islam@aiavatar.com.bd",
+    phone: "+880 1916-601501",
+    department: "Marketing",
+    departmentCode: "MKT",
+    positionLevel: "PROFESSIONAL",
+    employmentStatus: "ACTIVE",
+    employmentType: "FULL_TIME",
+    reportsTo: "Marketing Lead",
+    clearanceLevel: "INTERNAL",
+    officeLocation: "Dhaka Headquarters",
+    dateJoined: "2025-07-21",
+    responsibilities: [
+      "Sales",
+      "Contributing Content Generate"
     ]
   },
   {
@@ -247,53 +270,31 @@ export const employees: Employee[] = [
   },
   {
     id: 11,
-    employeeId: "ABD0014",
-    name: "Syed Ahnaf Atif Mahmood",
-    slug: "ABD0014",
-    role: "Sales Officer",
-    image: "https://i.postimg.cc/8zHrGngS/Whats-App-Image-2025-09-29-at-4-15-05-PM.jpg",
-    email: "ahnaf.atif@aiavatar.com.bd",
-    phone: "+880 1646-976632",
-    department: "Sales Officer",
-    departmentCode: "MKT",
+    employeeId: "ABD0018",
+    name: "Mahbub-E-Elahi",
+    slug: "ABD0018",
+    role: "Full stack developer (Flutter)",
+    image: "https://i.postimg.cc/k41rKS6z/Photo-of-Mahbub.jpg",
+    email: "mahbub.elahi@aiavatar.com.bd",
+    phone: "+880 1625-690544",
+    department: "Development",
+    departmentCode: "DEV",
     positionLevel: "PROFESSIONAL",
     employmentStatus: "ACTIVE",
     employmentType: "FULL_TIME",
-    reportsTo: "Marketing Lead",
+    reportsTo: "Project Manager",
     clearanceLevel: "INTERNAL",
     officeLocation: "Dhaka Headquarters",
-    dateJoined: "2024-07-21",
+    dateJoined: "2025-08-21",
     responsibilities: [
-      "Contribution to Social media contents",
-      "Maintaining content calender",
-      "Create Static Contents"
+      "Web development",
+      "Bug fixing",
+      "Database structure",
+      "Deployment"
     ]
   },
   {
     id: 12,
-    employeeId: "ABD0015",
-    name: "Md Shohidul Islam",
-    slug: "ABD0015",
-    role: "Sales Officer",
-    image: "https://i.postimg.cc/WpWrFydc/Whats-App-Image-2025-09-29-at-4-11-54-PM.jpg",
-    email: "shohidul.islam@aiavatar.com.bd",
-    phone: "+880 1916-601501",
-    department: "Marketing",
-    departmentCode: "MKT",
-    positionLevel: "PROFESSIONAL",
-    employmentStatus: "ACTIVE",
-    employmentType: "FULL_TIME",
-    reportsTo: "Marketing Lead",
-    clearanceLevel: "INTERNAL",
-    officeLocation: "Dhaka Headquarters",
-    dateJoined: "2025-07-21",
-    responsibilities: [
-      "Sales",
-      "Contributing Content Generate"
-    ]
-  },
-  {
-    id: 14,
     employeeId: "ABD0019",
     name: "MD. Ikramul Islam",
     slug: "ABD0019",
@@ -318,7 +319,7 @@ export const employees: Employee[] = [
     ]
   },
   {
-    id: 15,
+    id: 13,
     employeeId: "ABD0020",
     name: "MD. Afroz Mehdee",
     slug: "ABD0020",
@@ -343,7 +344,7 @@ export const employees: Employee[] = [
     ]
   },
   {
-    id: 16,
+    id: 14,
     employeeId: "ABD0021",
     name: "Quazi Kashfi Radwanul Haque",
     slug: "ABD0021",
@@ -368,7 +369,7 @@ export const employees: Employee[] = [
     ]
   },
   {
-    id: 17,
+    id: 15,
     employeeId: "ABD0022",
     name: "Meherab Hassan",
     slug: "ABD0022",
@@ -390,31 +391,6 @@ export const employees: Employee[] = [
       "Invoice processing",
       "Financial records maintenance",
       "Expense tracking"
-    ]
-  },
-  {
-    id: 13,
-    employeeId: "ABD0018",
-    name: "Mahbub-E-Elahi",
-    slug: "ABD0018",
-    role: "Full stack developer (Flutter)",
-    image: "https://i.postimg.cc/k41rKS6z/Photo-of-Mahbub.jpg",
-    email: "mahbub.elahi@aiavatar.com.bd",
-    phone: "+880 1625-690544",
-    department: "Development",
-    departmentCode: "DEV",
-    positionLevel: "PROFESSIONAL",
-    employmentStatus: "ACTIVE",
-    employmentType: "FULL_TIME",
-    reportsTo: "Project Manager",
-    clearanceLevel: "INTERNAL",
-    officeLocation: "Dhaka Headquarters",
-    dateJoined: "2025-08-21",
-    responsibilities: [
-      "Web development",
-      "Bug fixing",
-      "Database structure",
-      "Deployment"
     ]
   }
 ];
